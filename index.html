@@ -1,0 +1,379 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mauli Patel – Data Analyst & Content Writer</title>
+  <meta name="description" content="Portfolio of Mauli Patel – Data Analyst & Content Writer. Projects in Python, SQL, Tableau, Power BI; blogs and educational content; certifications and contact." />
+  <meta property="og:title" content="Mauli Patel – Data Analyst & Content Writer" />
+  <meta property="og:description" content="Projects in Python, SQL, Tableau, Power BI; blogs, and dashboards" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://itsmemauliii.github.io" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#0b0d12;--panel:#121521;--muted:#b7c0d9;--text:#e8ecf8;--brand:#7c9cff;--brand-2:#75f0c6;--accent:#ffd166;
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#0f1220 35%,#0b0d12 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    body::before{
+      content:"";position:fixed;inset:-20%;pointer-events:none;
+      background:radial-gradient(45% 35% at 10% 10%, rgba(124,156,255,.18), transparent 60%),
+                 radial-gradient(35% 25% at 90% 80%, rgba(117,240,198,.14), transparent 60%);
+      filter:blur(40px);
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+    @keyframes drift{ 0%{transform:translate3d(0,0,0) scale(1)} 100%{transform:translate3d(2%, -2%, 0) scale(1.05)} }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(10px);background:rgba(18,21,33,.6);border-bottom:1px solid rgba(255,255,255,.07);z-index:20}
+    nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    nav .links a{color:var(--muted);text-decoration:none;margin:0 10px;font-weight:600;transition:opacity .25s, transform .25s}
+    nav .links a:hover{color:var(--text);opacity:.9;transform:translateY(-1px)}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,156,255,.1);border:1px solid rgba(124,156,255,.35);padding:6px 12px;border-radius:999px;color:#cfe0ff;font-size:13px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center;padding:56px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;transform:translateY(10px);animation:fadeUp .8s ease forwards}
+    .hero .card{padding:28px}
+    .card:nth-of-type(1){animation-delay:.05s}
+    .card:nth-of-type(2){animation-delay:.2s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    h1{font-size:44px;line-height:1.15;margin:12px 0 10px}
+    h2{font-size:28px;margin:26px 0 10px}
+    p.lead{font-size:18px;color:#d6dbef;max-width:62ch}
+    .grid{display:grid;gap:18px}
+    .skills{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .skill{padding:18px;transition:transform .25s, background .25s}
+    .skill:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+    .kpis{display:flex;gap:18px;flex-wrap:wrap}
+    .kpi{flex:1;min-width:160px;padding:16px;text-align:center;border:1px dashed rgba(255,255,255,.15);border-radius:14px;transition:transform .25s}
+    .kpi:hover{transform:translateY(-2px)}
+    .projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .project{padding:18px;display:flex;flex-direction:column;gap:8px;transition:transform .25s, box-shadow .25s}
+    .project:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .project h3{margin:6px 0 0;font-size:18px}
+    .meta{font-size:13px;color:var(--muted)}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--brand);color:#0b0d12;text-decoration:none;font-weight:700;transition:transform .2s, filter .2s}
+    a.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    a.btn.alt{background:var(--brand-2)}
+    a.btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2)}
+    section{padding:24px 0}
+    .tags{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{padding:6px 10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;font-size:12px}
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:24px 0;color:var(--muted)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .timeline{position:relative;padding-left:28px}
+    .timeline::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:2px;background:rgba(255,255,255,.15)}
+    .titem{position:relative;margin:0 0 16px 0;padding:12px 14px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .titem:last-child{margin-bottom:0}
+    .titem::before{content:"";position:absolute;left:-2px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px rgba(124,156,255,.25)}
+    .trole{font-weight:700}
+    .tdate{font-size:12px;color:var(--muted)}
+    .writing-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .wcard{padding:16px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:10px}
+    .wcard a{color:#e8ecf8;text-decoration:none}
+    .chip{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(124,156,255,.15);border:1px solid rgba(124,156,255,.35)}
+    .skill-category {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .3);
+    }
+    .skill-category h3 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--brand);
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .skill-item {
+      background: rgba(124, 156, 255, .1);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #cfe0ff;
+      border: 1px solid rgba(124, 156, 255, .3);
+      transition: background .2s, color .2s;
+    }
+    .skill-item:hover {
+      background: var(--brand);
+      color: var(--bg);
+    }
+    #writing .wcard a.btn {
+      width: fit-content;
+      margin-top: auto;
+    }
+    #education.card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion: reduce){ *{animation:none !important;transition:none !important} body::before{display:none} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+       <div style="display:flex;align-items:center;gap:12px">
+        <img src="mauli.jpg" alt="Mauli Patel" 
+             style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #7c9cff;" />
+        <span class="badge">Data Analyst & Content Writer</span>
+        </div>
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#writing">Writing</a>
+          <a href="#education">Education</a>
+          <a href="#certs">Certifications</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <span class="badge">Hello, I’m Mauli👋</span>
+        <h1>Turning <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">data</span> into insights and insights into stories.</h1>
+        <p class="lead">Analytical and detail‑oriented Data Analyst with hands‑on experience in Python, SQL, Excel, Power BI, and Tableau. I build interactive dashboards, automate reporting, and communicate insights through content that educates and inspires.</p>
+        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
+          <a class="btn alt" href="#writing">Explore my writing</a>
+        </div>
+        <div class="kpis" style="margin-top:16px">
+          <div class="kpi"><div class="num">10k+</div><div class="meta">LinkedIn audience</div></div>
+          <div class="kpi"><div class="num">6+</div><div class="meta">Major tools</div></div>
+          <div class="kpi"><div class="num">2</div><div class="meta">Interactive demos</div></div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <img src="mauli.jpg" alt="Mauli Patel" 
+             style="width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;" />
+      </div>
+    </section>
+
+    <section id="about" class="two">
+      <div class="card" style="padding:20px">
+        <h2>About</h2>
+        <p>Currently pursuing <strong>MSc in Big Data Analytics</strong> at St. Xavier’s College, Ahmedabad (2024–2026) after completing a <strong>BSc in Information Technology</strong> at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content.</p>
+        <p>Research interests include <em>deepfake detection</em> and <em>lifestyle analytics & work‑life balance</em>. I founded <strong>Tech Data Hub</strong> to share hands‑on resources for beginners in AI & data science.</p>
+      </div>
+      <div class="card" style="padding:20px">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Interactive app: <a href="https://huggingface.co/spaces/itsmemauli/focuswhiz" target="_blank" rel="noreferrer">FocusWhiz – The Productivity Spellcaster</a></li>
+          <li>NLP web app: <a href="https://nlpprojectrestaurant.streamlit.app/" target="_blank" rel="noreferrer">Flavor Finder – Food Recommendation</a></li>
+          <li>Dashboards: <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau Public profile</a></li>
+        </ul>
+        <div class="tags" style="margin-top:12px">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">SQL / MySQL</span><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">NLP</span><span class="tag">Scikit‑learn</span><span class="tag">Spark & Hive</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid skills">
+        <div class="skill-category">
+          <h3>Programming</h3>
+          <div class="skill-list">
+            <span class="skill-item">Python (Pandas, NumPy, Matplotlib)</span>
+            <span class="skill-item">R</span>
+            <span class="skill-item">Machine Learning</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Databases & Querying</h3>
+          <div class="skill-list">
+            <span class="skill-item">SQL</span>
+            <span class="skill-item">MySQL</span>
+            <span class="skill-item">Hive</span>
+            <span class="skill-item">Spark</span>
+            <span class="skill-item">Pig</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Visualization</h3>
+          <div class="skill-list">
+            <span class="skill-item">Tableau</span>
+            <span class="skill-item">Power BI</span>
+            <span class="skill-item">Excel</span>
+            <span class="skill-item">Looker</span>
+            <span class="skill-item">Google Sheets</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>AI & Automation</h3>
+          <div class="skill-list">
+            <span class="skill-item">ChatGPT</span>
+            <span class="skill-item">Prompt Engineering</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Version Control</h3>
+          <div class="skill-list">
+            <span class="skill-item">Git</span>
+            <span class="skill-item">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid projects">
+        <article class="card project">
+          <div class="meta">Python • NLP • Streamlit</div>
+          <h3>Flavor Finder – NLP Food Recommendation</h3>
+          <p>Recipe recommendation using TF‑IDF & cosine similarity with an interactive Streamlit UI for dynamic search, CSV upload, and real‑time suggestions.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://nlpprojectrestaurant.streamlit.app/" target="_blank" rel="noreferrer">Live Demo</a>
+            <a class="btn alt" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">Source (repo list)</a>
+          </div>
+        </article>
+        <article class="card project">
+          <div class="meta">Gradio • spaCy • TextBlob</div>
+          <h3>FocusWhiz – The Productivity Spellcaster</h3>
+          <p>Analyzes user thoughts to detect distraction patterns and generate personalized focus prompts with a gamified feedback loop.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://huggingface.co/spaces/itsmemauli/focuswhiz" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+        <article class="card project">
+          <div class="meta">Tableau / Power BI</div>
+          <h3>Analytics Dashboards</h3>
+          <p>Interactive dashboards for exploratory analysis, KPI tracking, and automated reporting.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">View on Tableau</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <div class="two">
+        <div class="card" style="padding:20px">
+          <p>I create beginner-friendly content on AI, data science, and career growth via <strong>Tech Data Hub</strong> and LinkedIn. Explore selected posts and newsletters below.</p>
+          <div style="margin:10px 0 16px 0">
+            <a class="btn" href="https://www.linkedin.com/in/itsmemauliii/recent-activity/all/" target="_blank" rel="noreferrer">Explore my work on LinkedIn</a>
+          </div>
+          <h3 style="margin-top:20px">📩 Newsletters</h3>
+          <div class="writing-grid">
+            <article class="wcard">
+              <span class="chip">Newsletter</span>
+              <h3>My Growth Diaries</h3>
+              <p>Reflections, lessons, and insights on career growth and self-development.</p>
+              <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7328713593259012096" target="_blank" rel="noreferrer">Subscribe📩</a>
+            </article>
+            <article class="wcard">
+              <span class="chip">Newsletter</span>
+              <h3>Tech Data Chronicles</h3>
+              <p>Stories and breakdowns of real-world data science projects & concepts.</p>
+              <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7165945421201063936" target="_blank" rel="noreferrer">Subscribe📩</a>
+            </article>
+            <article class="wcard">
+              <span class="chip">Newsletter</span>
+              <h3>AI Curious Techie</h3>
+              <p>Bite-sized insights for beginners exploring AI tools and trends.</p>
+              <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7264225606186225664" target="_blank" rel="noreferrer">Subscribe📩</a>
+            </article>
+            <article class="wcard">
+              <span class="chip">Newsletter</span>
+              <h3>Tech Data Hub</h3>
+              <p>Beginner-friendly AI & data resources, toolkits, and career guidance.</p>
+              <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7209417320090238976" target="_blank" rel="noreferrer">Subscribe📩</a>
+            </article>
+          </div>
+          <h3 style="margin-top:30px">⭐ Featured Posts</h3>
+          <div class="writing-grid">
+            <article class="wcard">
+              <span class="chip">Featured Post</span>
+              <a href="https://www.linkedin.com/in/itsmemauliii/recent-activity/posts/" target="_blank" rel="noreferrer">
+                <h3>👩🏻‍💻 Explore My DEV Community Projects & Experiments</h3>
+              </a>
+              <p>🛠️ Explore my learning journey, weekend projects, and experiments in data science, AI, and beyond.</p>
+            </article>
+            <article class="wcard">
+              <span class="chip">Journey</span>
+              <a href="https://www.linkedin.com/in/itsmemauliii/recent-activity/posts/" target="_blank" rel="noreferrer">
+                <h3>Postman API Fundamentals Student Expert Journey</h3>
+              </a>
+              <p>Learning APIs step by step → from basics to building confidence in requests, responses, and collections.</p>
+            </article>
+          </div>
+        </div>
+        <div id="education" class="card" style="padding:20px">
+          <h2>Education</h2>
+          <div class="timeline" aria-label="Education timeline" style="max-width:100%;padding-right:30px">
+            <div class="titem" style="padding:18px 20px">
+              <div class="trole">MSc – Big Data Analytics</div>
+              <div class="tdate">Jun 2024 — Jun 2026 · St. Xavier’s College, Ahmedabad</div>
+              <div class="meta">Statistical Methods, ML, Data Mining, Optimization, Big Data Tools (Spark/Hadoop), Econometrics.</div>
+            </div>
+            <div class="titem" style="padding:18px 20px">
+              <div class="trole">BSc – Information Technology</div>
+              <div class="tdate">Jun 2021 — Jun 2024 · GLS University</div>
+              <div class="meta">AI/ML, Data Structures, Web Development, DBMS, Software Engineering.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs">
+      <h2>Certifications</h2>
+      <div class="grid skills">
+        <div class="card skill"><strong>Cisco</strong><br/>Data Analytics Essentials (Jul 2023)</div>
+        <div class="card skill"><strong>IBM</strong><br/>Data Analysis Using Python (Aug 2024)</div>
+        <div class="card skill"><strong>HP LIFE</strong><br/>Data Science & Analytics (Jun 2025)</div>
+      </div>
+    </section>
+
+    <section id="contact" class="two">
+      <div class="card" style="padding:20px">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:maulipatel18112003@gmail.com">maulipatel18112003@gmail.com</a></p>
+        <p>Open to internships, freelance analytics, dashboarding, and content collaborations.</p>
+        <div class="tags"><span class="tag">Ahmedabad, India</span><span class="tag">Remote‑friendly</span></div>
+      </div>
+      <div class="card" style="padding:20px">
+        <h2>Quick Links</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn ghost" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
+        </div>
+        <p style="margin-top:10px;color:var(--muted);font-size:13px">© <span id="year"></span> Mauli Patel</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Built with ♥ and hosted on GitHub Pages.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
