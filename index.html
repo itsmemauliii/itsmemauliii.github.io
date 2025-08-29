@@ -11,73 +11,88 @@
   <style>
     :root {
       --bg: #0b0f17;
-      --bg-elev: #0f1522;
+      --bg-elev: #101622;
       --card: #121a2a;
       --muted: #9fb0cc;
       --text: #e7eefc;
       --brand: #6aa9ff;
       --brand-2: #8ef6d1;
       --ring: rgba(106,169,255,.5);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --border: 1px solid rgba(255,255,255,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;background:linear-gradient(180deg,var(--bg),#0a1020 60%,#070b15);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+    html,body{margin:0;height:100%;background:radial-gradient(1100px 500px at 0% -20%,rgba(106,169,255,.08),transparent),linear-gradient(180deg,var(--bg),#0a1020 60%,#070b15);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.6);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    img{max-width:100%;display:block}
+
+    /* Layout */
+    .container{max-width:1140px;margin:0 auto;padding:0 20px}
+    section{padding:56px 0}
+    .section-title{font-size:1.6rem;margin:0 0 18px}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.7);backdrop-filter:saturate(160%) blur(14px);border-bottom:var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-weight:800;letter-spacing:.3px}
     .brand b{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .nav a{opacity:.9}
-    .menu{display:flex;gap:18px;align-items:center}
+    .menu{display:flex;gap:14px;align-items:center}
     .menu a{font-size:.95rem;padding:8px 10px;border-radius:10px}
     .menu a:hover{background:rgba(255,255,255,.06)}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#041221;font-weight:700}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#041221;font-weight:700}
 
     /* Hero */
-    .hero{padding:72px 0 36px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-    .chip{display:inline-block;border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:.85rem}
-    h1{font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.05;margin:.6rem 0}
+    .hero{padding:72px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .chip{display:inline-block;border:var(--border);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:.85rem}
+    h1{font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.05;margin:.6rem 0}
     .lead{font-size:1.05rem;color:#cfe0ff;opacity:.95}
-    .stats{display:flex;gap:18px;margin:18px 0 0}
-    .stat{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:14px 16px;border-radius:14px;box-shadow:var(--shadow)}
+    .stats{display:flex;gap:14px;margin:18px 0 0;flex-wrap:wrap}
+    .stat{background:var(--card);border:var(--border);padding:12px 14px;border-radius:14px;box-shadow:var(--shadow);min-width:130px}
     .stat b{font-size:1.15rem}
-    .hero-card{background:radial-gradient(1200px 400px at -10% -30%,rgba(106,169,255,.25),transparent),linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px 20px}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:var(--border);border-radius:var(--radius);padding:22px 20px}
     .hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#0f1628;border:1px solid rgba(255,255,255,.1)}
-    .btn:hover{border-color:rgba(255,255,255,.25)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#0f1628;border:var(--border);transition:.2s transform}
+    .btn:hover{border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
 
-    /* Sections */
-    section{padding:46px 0}
-    .section-title{font-size:1.6rem;margin:0 0 18px}
+    /* Generic cards and grids */
     .grid{display:grid;gap:16px}
-    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width: 900px){.hero-grid{grid-template-columns:1fr}.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+    .grid.autofill-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.autofill-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    @media (max-width: 960px){.hero-grid{grid-template-columns:1fr}}
+    @media (max-width: 860px){.grid.autofill-3,.grid.autofill-2{grid-template-columns:1fr}}
 
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:4px 0 10px;font-size:1.15rem}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 10px;font-size:1.12rem}
     .muted{color:var(--muted)}
 
     /* Skill badges */
     .badges{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{padding:8px 10px;background:#0f1628;border:1px solid rgba(255,255,255,.08);border-radius:999px;font-size:.9rem}
+    .badge{padding:8px 10px;background:#0f1628;border:var(--border);border-radius:999px;font-size:.9rem}
 
-    /* Project cards */
+    /* Bars */
+    .bar{height:8px;border-radius:999px;background:#0f1628;border:var(--border);overflow:hidden}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+
+    /* Pills & actions */
     .pill{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border:1px dashed rgba(255,255,255,.2);border-radius:999px;color:var(--muted);font-size:.85rem}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
+    /* Split layout helpers */
+    .split{display:grid;grid-template-columns:2fr 1.2fr;gap:16px}
+    @media (max-width: 1020px){.split{grid-template-columns:1fr}}
+
     /* Footer */
-    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    footer{padding:28px 0;border-top:var(--border);color:var(--muted)}
 
     /* Mobile menu */
     .hamburger{display:none}
     @media (max-width: 760px){
       .menu{display:none}
-      .hamburger{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1628}
-      .mobile{display:none;position:fixed;inset:64px 14px auto 14px;background:var(--bg-elev);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:12px}
+      .hamburger{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:var(--border);background:#0f1628}
+      .mobile{display:none;position:fixed;inset:64px 14px auto 14px;background:var(--bg-elev);border:var(--border);border-radius:16px;padding:12px}
       .mobile a{display:block;padding:12px;border-radius:10px}
       .mobile a:hover{background:rgba(255,255,255,.06)}
     }
@@ -151,7 +166,7 @@
 
   <!-- About -->
   <section id="about">
-    <div class="container grid cols-2">
+    <div class="container split">
       <div>
         <h2 class="section-title">About</h2>
         <p class="muted">Currently pursuing MSc in Big Data Analytics at St. Xavier's College, Ahmedabad (2024–2026) after completing a BSc in Information Technology at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content. Research interests include deepfake detection and lifestyle analytics & work‑life balance. I founded <b>Tech Data Hub</b> to share hands‑on resources for beginners in AI & data science.</p>
@@ -171,33 +186,64 @@
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Skills</h2>
-      <div class="grid cols-3">
+      <div class="grid responsive">
         <div class="card">
           <span class="pill">💻 Programming & Analysis</span>
-          <div class="badges" style="margin-top:12px">
-            <span class="badge">Python</span>
-            <span class="badge">Pandas</span>
-            <span class="badge">NumPy</span>
-            <span class="badge">R Programming</span>
-            <span class="badge">Machine Learning</span>
+          <div style="margin-top:14px;display:grid;gap:12px">
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Python</span><span>Expert</span></div>
+              <div class="bar"><span style="width:92%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Pandas / NumPy</span><span>Advanced</span></div>
+              <div class="bar"><span style="width:88%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Machine Learning</span><span>Intermediate</span></div>
+              <div class="bar"><span style="width:75%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>R Programming</span><span>Intermediate</span></div>
+              <div class="bar"><span style="width:65%"></span></div>
+            </div>
           </div>
         </div>
         <div class="card">
           <span class="pill">📊 Data Visualization</span>
-          <div class="badges" style="margin-top:12px">
-            <span class="badge">Tableau</span>
-            <span class="badge">Power BI</span>
-            <span class="badge">Excel</span>
-            <span class="badge">Matplotlib/Seaborn</span>
+          <div style="margin-top:14px;display:grid;gap:12px">
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Tableau</span><span>Advanced</span></div>
+              <div class="bar"><span style="width:85%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Power BI</span><span>Advanced</span></div>
+              <div class="bar"><span style="width:82%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Excel</span><span>Advanced</span></div>
+              <div class="bar"><span style="width:80%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Matplotlib / Seaborn</span><span>Intermediate</span></div>
+              <div class="bar"><span style="width:70%"></span></div>
+            </div>
           </div>
         </div>
         <div class="card">
           <span class="pill">🗃 Databases & Big Data</span>
-          <div class="badges" style="margin-top:12px">
-            <span class="badge">SQL</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">Spark/Hadoop</span>
-            <span class="badge">Hive/Pig</span>
+          <div style="margin-top:14px;display:grid;gap:12px">
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>SQL / MySQL</span><span>Advanced</span></div>
+              <div class="bar"><span style="width:84%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Spark / Hadoop</span><span>Intermediate</span></div>
+              <div class="bar"><span style="width:68%"></span></div>
+            </div>
+            <div>
+              <div class="muted" style="display:flex;justify-content:space-between"><span>Hive / Pig</span><span>Intermediate</span></div>
+              <div class="bar"><span style="width:60%"></span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -208,7 +254,7 @@
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Projects</h2>
-      <div class="grid cols-3">
+      <div class="grid responsive">
         <article class="card">
           <span class="pill">Python • NLP • Streamlit</span>
           <h3>Flavor Finder – NLP Food Recommendation</h3>
@@ -243,7 +289,9 @@
     <div class="container">
       <h2 class="section-title">Writing</h2>
       <p class="muted">I create beginner‑friendly content on AI, data science, and career growth via Tech Data Hub and LinkedIn. Explore selected posts and newsletters below.</p>
-      <div class="grid cols-3" style="margin-top:10px">
+
+      <h3 class="muted" style="margin:18px 0 10px">Newsletters</h3>
+      <div class="grid responsive">
         <div class="card">
           <h3>My Growth Diaries</h3>
           <p class="muted">Reflections, lessons, and insights on career growth and self‑development.</p>
@@ -259,20 +307,23 @@
           <p class="muted">Bite‑sized insights for beginners exploring AI tools and trends.</p>
           <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7264225606186225664" target="_blank" rel="noreferrer">Subscribe</a>
         </div>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <h3>Tech Data Hub</h3>
-        <p class="muted">Beginner‑friendly AI & data resources, toolkits, and career guidance.</p>
-        <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7209417320090238976" target="_blank" rel="noreferrer">Subscribe</a>
+        <div class="card">
+          <h3>Tech Data Hub</h3>
+          <p class="muted">Beginner‑friendly AI & data resources, toolkits, and career guidance.</p>
+          <a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7209417320090238976" target="_blank" rel="noreferrer">Subscribe</a>
+        </div>
       </div>
 
-      <div class="grid cols-2" style="margin-top:14px">
+      <h3 class="muted" style="margin:24px 0 10px">Featured Posts</h3>
+      <div class="grid responsive">
         <div class="card">
-          <h3>Featured Post</h3>
-          <p class="muted">Explore my DEV Community projects & experiments. 🛠 Explore my learning journey, weekend projects, and experiments in data science, AI, and beyond.</p>
+          <span class="pill">Featured Post</span>
+          <h3>Explore My DEV Community Projects & Experiments</h3>
+          <p class="muted">🛠 Explore my learning journey, weekend projects, and experiments in data science, AI, and beyond.</p>
           <a class="btn" href="https://www.linkedin.com/in/itsmemauliii/recent-activity/posts/" target="_blank" rel="noreferrer">Journey</a>
         </div>
         <div class="card">
+          <span class="pill">Journey</span>
           <h3>Postman API Fundamentals – Student Expert Journey</h3>
           <p class="muted">Learning APIs step by step → from basics to building confidence in requests, responses, and collections.</p>
           <a class="btn" href="https://www.linkedin.com/in/itsmemauliii/recent-activity/all/" target="_blank" rel="noreferrer">Explore more on LinkedIn</a>
@@ -285,7 +336,7 @@
   <section id="education">
     <div class="container">
       <h2 class="section-title">Education</h2>
-      <div class="grid cols-2">
+      <div class="grid responsive">
         <div class="card">
           <h3>MSc – Big Data Analytics</h3>
           <p class="muted">Jun 2024 – Jun 2026 · St. Xavier's College, Ahmedabad</p>
@@ -304,7 +355,7 @@
   <section id="certifications">
     <div class="container">
       <h2 class="section-title">Certifications</h2>
-      <div class="grid cols-3">
+      <div class="grid responsive">
         <div class="card">
           <h3>Cisco – Data Analytics Essentials</h3>
           <p class="muted">July 2023</p>
@@ -323,18 +374,20 @@
 
   <!-- Contact -->
   <section id="contact">
-    <div class="container grid cols-2">
-      <div>
-        <h2 class="section-title">Contact</h2>
-        <p>Email: <a href="mailto:maulipatel18112003@gmail.com">maulipatel18112003@gmail.com</a></p>
-        <p class="muted">Ahmedabad, India · Remote‑friendly</p>
-      </div>
-      <div class="card">
-        <h3>Quick Links</h3>
-        <div class="hero-links" style="margin-top:6px">
-          <a class="btn" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
+    <div class="container">
+      <div class="grid autofill-2">
+        <div>
+          <h2 class="section-title">Contact</h2>
+          <p>Email: <a href="mailto:maulipatel18112003@gmail.com">maulipatel18112003@gmail.com</a></p>
+          <p class="muted">Ahmedabad, India · Remote‑friendly</p>
+        </div>
+        <div class="card">
+          <h3>Quick Links</h3>
+          <div class="hero-links" style="margin-top:6px">
+            <a class="btn" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
+          </div>
         </div>
       </div>
     </div>
