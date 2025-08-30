@@ -6,62 +6,74 @@
   <title>Mauli Patel – Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* === Neon Blue Theme === */
+    /* === Neon Theme === */
     :root {
       --neon: #00d9ff;
+      --neon-alt: #ff6ad5;
       --bg: #050d1a;
       --panel: rgba(0,217,255,.05);
       --border: rgba(0,217,255,.3);
       --text: #eaf2ff;
       --muted: #9fb0cc;
     }
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box;margin:0;padding:0}
     body {
-      margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(circle at top left,rgba(0,217,255,.08),transparent),
+                 radial-gradient(circle at bottom right,rgba(255,106,213,.08),transparent),
+                 #050d1a;
+      color:var(--text); line-height:1.6;
     }
     a{color:inherit;text-decoration:none}
-    h2 { text-align:center; font-size:1.8rem; margin:0 0 32px; color:var(--neon); text-shadow:0 0 10px var(--neon);}
-    section{padding:70px 20px; max-width:1100px; margin:auto;}
+    h2 { text-align:center; font-size:2rem; margin:0 0 32px; color:var(--neon); text-shadow:0 0 10px var(--neon);}
+    section{padding:80px 20px; max-width:1100px; margin:auto;}
+    .grid{display:grid;gap:20px;}
+    .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 0 15px rgba(0,217,255,.2);transition:.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(0,217,255,.4);}
+    .btn{display:inline-block;margin:8px;padding:10px 18px;background:var(--neon);color:#041221;font-weight:600;
+      border-radius:10px;box-shadow:0 0 15px var(--neon);transition:.2s;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 25px var(--neon);}
 
     /* Navbar */
-    nav {position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+    nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
       background:rgba(5,10,25,.85);backdrop-filter:blur(10px);padding:12px 24px;border-bottom:1px solid var(--border);}
     nav .brand{font-weight:800;font-size:1.2rem;color:var(--neon);text-shadow:0 0 10px var(--neon);}
     nav .links a{margin:0 10px;padding:6px 10px;border-radius:6px;}
     nav .links a:hover{background:rgba(0,217,255,.1);}
 
     /* Hero */
-    header{text-align:center;padding:80px 20px 60px;}
-    header h1{font-size:2.8rem;text-shadow:0 0 15px var(--neon);}
-    header p{max-width:600px;margin:12px auto;color:#b8d6ff;}
-    .btn{display:inline-block;margin:8px;padding:10px 16px;background:var(--neon);color:#041221;font-weight:600;
-      border-radius:10px;box-shadow:0 0 15px var(--neon);transition:.2s;}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 0 25px var(--neon);}
+    header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;}
+    header img{width:220px;height:220px;border-radius:50%;border:4px solid var(--neon);
+      box-shadow:0 0 30px var(--neon),0 0 50px var(--neon-alt);object-fit:cover;}
+    header h1{font-size:3rem;text-shadow:0 0 20px var(--neon);}
+    header p{max-width:550px;margin:15px 0;color:#b8d6ff;}
 
-    /* Cards & Grids */
-    .grid{display:grid;gap:20px;}
-    .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 0 15px rgba(0,217,255,.1);}
-    .card h3{margin-top:0;}
-
-    /* Skills with Neon Circles */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;justify-items:center;}
+    /* Skills Circles */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;justify-items:center;}
     .skill{text-align:center;}
-    .circle{width:120px;height:120px;border-radius:50%;border:6px solid var(--neon);box-shadow:0 0 20px var(--neon);
-      position:relative;margin:auto;animation:glow 2s infinite alternate;}
-    .circle::after{content:attr(data-skill);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      color:var(--neon);font-weight:700;}
-    @keyframes glow {from{box-shadow:0 0 10px var(--neon);}to{box-shadow:0 0 25px var(--neon);}}
+    .circle{width:140px;height:140px;border-radius:50%;border:6px solid var(--neon);
+      box-shadow:0 0 20px var(--neon);position:relative;margin:auto;}
+    .circle::after{content:attr(data-skill);position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);color:var(--neon);font-weight:700;font-size:1.1rem;}
+    .circle[data-percent]:before{
+      content:attr(data-percent) "%";
+      position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
+      font-size:.9rem;color:var(--muted);}
+    @keyframes pulse {0%{box-shadow:0 0 15px var(--neon);}100%{box-shadow:0 0 35px var(--neon);}}
+    .circle{animation:pulse 2s infinite alternate;}
 
-    /* Writing section */
-    .chip{display:inline-block;padding:4px 10px;background:rgba(0,217,255,.2);border-radius:20px;font-size:.8rem;color:var(--neon);}
+    /* Interests */
+    #interests .card h3{color:var(--neon-alt);text-shadow:0 0 8px var(--neon-alt);}
 
     /* Contact Form */
     form{display:grid;gap:16px;max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--border);
       border-radius:16px;padding:24px;box-shadow:0 0 25px rgba(0,217,255,.15);}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#061020;color:var(--text);}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);
+      background:#061020;color:var(--text);}
     input:focus,textarea:focus{border-color:var(--neon);box-shadow:0 0 10px var(--neon);outline:none;}
     button[type=submit]{cursor:pointer;}
+
     footer{text-align:center;padding:20px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);}
   </style>
 </head>
@@ -72,23 +84,26 @@
     <div class="links">
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
       <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
-      <a href="#contact">Reach Out</a>
+      <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header>
-    <h1>Hello, I’m Mauli 👋</h1>
-    <p>Turning <b>data</b> into insights and insights into stories. I build interactive dashboards, automate reporting, and create beginner-friendly AI & data content.</p>
-    <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
-    <a href="https://github.com/itsmemauliii" target="_blank" class="btn">GitHub</a>
-    <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" class="btn">Tableau</a>
+    <img src="mauli.jpg" alt="Mauli Patel">
+    <div>
+      <h1>Hello, I’m Mauli 👋</h1>
+      <p>Turning <b>data</b> into insights and insights into stories. I build interactive dashboards, automate reporting, and create beginner-friendly AI & data content.</p>
+      <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
+      <a href="https://github.com/itsmemauliii" target="_blank" class="btn">GitHub</a>
+      <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" class="btn">Tableau</a>
+    </div>
   </header>
 
   <!-- ABOUT -->
   <section id="about">
     <h2>About</h2>
-    <div class="grid two">
+    <div class="grid responsive">
       <div class="card">
         <p>Currently pursuing MSc in Big Data Analytics at St. Xavier's College, Ahmedabad (2024–2026) after completing a BSc in Information Technology at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content. I founded <b>Tech Data Hub</b> to share resources for beginners in AI & data science.</p>
       </div>
@@ -107,9 +122,9 @@
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill"><div class="circle" data-skill="Python"></div><p>Programming & Analysis</p></div>
-      <div class="skill"><div class="circle" data-skill="Tableau"></div><p>Data Visualization</p></div>
-      <div class="skill"><div class="circle" data-skill="SQL"></div><p>Databases & Big Data</p></div>
+      <div class="skill"><div class="circle" data-skill="Python" data-percent="92"></div><p>Programming & Analysis</p></div>
+      <div class="skill"><div class="circle" data-skill="Tableau" data-percent="88"></div><p>Data Visualization</p></div>
+      <div class="skill"><div class="circle" data-skill="SQL" data-percent="84"></div><p>Databases & Big Data</p></div>
     </div>
   </section>
 
@@ -127,10 +142,10 @@
   <section id="writing">
     <h2>Writing</h2>
     <div class="grid responsive">
-      <div class="card"><h3>My Growth Diaries</h3><p>Reflections and lessons on career growth.</p><a class="btn" href="#">Subscribe</a></div>
-      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from real-world data projects.</p><a class="btn" href="#">Subscribe</a></div>
-      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p><a class="btn" href="#">Subscribe</a></div>
-      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p><a class="btn" href="#">Subscribe</a></div>
+      <div class="card"><h3>My Growth Diaries</h3><p>Reflections and lessons on career growth.</p></div>
+      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from real-world data projects.</p></div>
+      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p></div>
+      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p></div>
     </div>
     <h3 style="text-align:center;margin-top:30px;">Featured Posts</h3>
     <div class="grid responsive">
@@ -158,6 +173,17 @@
     </div>
   </section>
 
+  <!-- INTERESTS -->
+  <section id="interests">
+    <h2>My Interests</h2>
+    <div class="grid responsive">
+      <div class="card"><h3>✈️ Travel</h3><p>Exploring new places and cultures to inspire creativity.</p></div>
+      <div class="card"><h3>📸 Photography</h3><p>Capturing moments and telling stories visually.</p></div>
+      <div class="card"><h3>📊 Data Storytelling</h3><p>Turning raw data into meaningful narratives.</p></div>
+      <div class="card"><h3>🎶 Music</h3><p>Enjoying melodies that recharge my mind and fuel focus.</p></div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <h2>Reach Out to Me</h2>
@@ -170,8 +196,6 @@
     </form>
   </section>
 
-  <footer>
-    © 2025 Mauli Patel
-  </footer>
+  <footer>© 2025 Mauli Patel</footer>
 </body>
 </html>
