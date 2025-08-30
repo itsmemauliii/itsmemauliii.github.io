@@ -8,28 +8,30 @@
   <style>
     /* ==== Neon Night Theme ==== */
     :root {
-      --neon: #ff4fa3;        /* neon pink */
-      --neon-alt: #9b5cff;    /* neon purple */
-      --bg: #12001a;          /* dark purple background */
+      --neon: #ff4fa3;        
+      --neon-alt: #9b5cff;    
+      --bg: #12001a;          
       --panel: rgba(255,79,163,.05);
       --border: rgba(255,79,163,.3);
       --text: #ffeaff;
       --muted: #d8b6e5;
       --firefly: var(--neon-alt);
       --firefly-glow: var(--neon);
+      --knob-glow: #ff4fa3;
     }
     /* ==== Light Day Theme ==== */
     body.light {
-      --bg: #fff4fb;
+      --bg: #fffdf7;
       --text: #2a002b;
       --muted: #6a446d;
       --panel: #ffffff;
       --border: rgba(0,0,0,.1);
       --neon: #ff3e90;
-      --neon-alt: #a852ff;
-      --firefly: #ff9dd9;
-      --firefly-glow: #d28bff;
-      background:#fff4fb;
+      --neon-alt: #ffb347;
+      --firefly: #ffea94;
+      --firefly-glow: #ffcc33;
+      --knob-glow: #ffb347;
+      background:#fffdf7;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;transition:all .3s ease;}
@@ -55,7 +57,50 @@
     nav .brand{font-weight:800;font-size:1.2rem;color:var(--neon);}
     nav .links a{margin:0 10px;padding:6px 10px;border-radius:6px;}
     nav .links a:hover{background:rgba(255,79,163,.1);}
-    nav .toggle{cursor:pointer;font-size:1.2rem;background:none;border:none;color:var(--neon);}
+    
+    /* 🌙☀️ Slider Toggle */
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+      margin-left:15px;
+    }
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: linear-gradient(90deg,var(--neon),var(--neon-alt));
+      border-radius: 30px;
+      transition: .4s;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 8px;
+      font-size:16px;
+      box-shadow:0 0 15px var(--neon-alt);
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--knob-glow);
+      transition: .4s;
+    }
+    input:checked + .slider::before {
+      transform: translateX(28px);
+    }
+
     header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;text-align:center;}
     header img{width:220px;height:220px;border-radius:50%;border:4px solid var(--neon);
       box-shadow:0 0 30px var(--neon),0 0 50px var(--neon-alt);object-fit:cover;}
@@ -117,24 +162,16 @@
     /* Fireflies */
     .firefly {
       position: fixed;
-      width: 6px; height: 6px;
       background: var(--firefly);
       border-radius: 50%;
-      box-shadow: 0 0 12px var(--firefly), 0 0 20px var(--firefly-glow);
-      animation: drift 20s linear infinite, blink 3s ease-in-out infinite alternate;
+      box-shadow: 0 0 10px var(--firefly), 0 0 18px var(--firefly-glow);
       pointer-events: none;
       z-index: 0;
-    }
-    @keyframes drift {
-      0%   { transform: translate(0,0); opacity:.8; }
-      25%  { transform: translate(80px,-120px); opacity:.4; }
-      50%  { transform: translate(-100px,200px); opacity:.9; }
-      75%  { transform: translate(120px,-150px); opacity:.5; }
-      100% { transform: translate(0,0); opacity:.8; }
+      animation: blink 4s ease-in-out infinite alternate;
     }
     @keyframes blink {
-      from { box-shadow: 0 0 5px var(--firefly); opacity:.6; }
-      to   { box-shadow: 0 0 25px var(--firefly-glow); opacity:1; }
+      from { box-shadow: 0 0 6px var(--firefly); opacity:.6; }
+      to   { box-shadow: 0 0 20px var(--firefly-glow); opacity:1; }
     }
   </style>
 </head>
@@ -146,7 +183,13 @@
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
       <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
       <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
-      <button class="toggle" id="themeToggle">🌙</button>
+      <!-- Slider Toggle -->
+      <div class="theme-switch">
+        <input type="checkbox" id="themeSlider">
+        <label for="themeSlider" class="slider">
+          <span>🌙</span><span>☀️</span>
+        </label>
+      </div>
     </div>
   </nav>
 
@@ -167,7 +210,7 @@
   <section id="about">
     <h2>About</h2>
     <div class="grid responsive">
-      <div class="card"><h3>Analyst’s Mindset</h3><p>MSc in Big Data Analytics (St. Xavier's College, 2024–2026) after BSc IT at GLS University. Passion for dashboards, NLP apps, and AI-powered tools solving real problems.</p></div>
+      <div class="card"><h3>Analyst’s Mindset</h3><p>MSc in Big Data Analytics (2024–2026) after BSc IT at GLS University. Passion for dashboards, NLP apps, and AI-powered tools solving real problems.</p></div>
       <div class="card"><h3>Content Writer’s Lens</h3><p>Numbers are powerful, but stories make them unforgettable. I share hands-on AI/data insights through <b>Tech Data Hub</b> and newsletters.</p></div>
     </div>
   </section>
@@ -255,26 +298,29 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/rrXZ5dwjxx5V9gRH7">Loading…</iframe>
+      <iframe src="https://forms.gle/szcHCFK5BUDQ3WH86">Loading…</iframe>
     </div>
   </section>
 
-  <footer>© 2025 Mauli Patel</footer>
+    <footer>© 2025 Mauli Patel</footer>
 
   <!-- Fireflies + Theme Toggle JS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const NUM_FIREFLIES = 25;
-      const toggle = document.getElementById("themeToggle");
+      const slider = document.getElementById("themeSlider");
 
       function spawnFireflies(){
         document.querySelectorAll(".firefly").forEach(f=>f.remove());
-        for(let i=0;i<NUM_FIREFLIES;i++){
+        for(let i=0;i<30;i++){
           const fly = document.createElement("div");
           fly.className = "firefly";
+          const size = Math.random()*6 + 3; // random 3px - 9px
+          fly.style.width = size + "px";
+          fly.style.height = size + "px";
           fly.style.top = Math.random()*100 + "vh";
           fly.style.left = Math.random()*100 + "vw";
-          fly.style.animationDuration = (15 + Math.random()*15) + "s, " + (2+Math.random()*3)+"s";
+          // random drift duration
+          fly.style.animationDuration = (15 + Math.random()*20) + "s, " + (3+Math.random()*4)+"s";
           document.body.appendChild(fly);
         }
       }
@@ -282,8 +328,25 @@
       function setTheme(mode){
         if(mode === "light"){
           document.body.classList.add("light");
-          toggle.textContent = "🌙";
+          slider.checked = true;
         } else {
           document.body.classList.remove("light");
-          toggle.textContent = "🌞";
+          slider.checked = false;
         }
+        localStorage.setItem("theme", mode);
+        spawnFireflies();
+      }
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      setTheme(savedTheme);
+
+      // Toggle theme on slider change
+      slider.addEventListener("change", () => {
+        const newMode = slider.checked ? "light" : "dark";
+        setTheme(newMode);
+      });
+    });
+  </script>
+</body>
+</html>
