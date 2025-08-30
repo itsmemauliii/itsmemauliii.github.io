@@ -62,9 +62,19 @@
     header h1{font-size:3rem;text-shadow:0 0 20px var(--neon);}
     header p{max-width:550px;margin:15px auto;color:var(--muted);}
     .tagline span{color:var(--neon-alt);font-weight:700;}
-    .magic-words{display:inline-block;overflow:hidden;vertical-align:bottom;height:1.2em;}
-    .magic-words span{display:block;animation:slide 6s infinite;}
-    @keyframes slide{0%{margin-top:0;}33%{margin-top:-1.2em;}66%{margin-top:-2.4em;}100%{margin-top:0;}}
+    .magic-words{display:inline-block;overflow:hidden;vertical-align:bottom;height:1.6em;}
+    .magic-words span{
+      display:block;
+      line-height:1.6em;
+      padding:0 6px;
+      animation:slide 10s infinite;
+    }
+    @keyframes slide{
+      0%{margin-top:0;}
+      33%{margin-top:-1.6em;}
+      66%{margin-top:-3.2em;}
+      100%{margin-top:0;}
+    }
 
     /* Skills Bars */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
@@ -122,10 +132,8 @@
   <nav>
     <div class="brand">Mauli Patel</div>
     <div class="links">
-      <a href="#about">About</a><a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#writing">Writing</a><a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
       <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
       <button class="toggle" id="themeToggle">🌙</button>
     </div>
@@ -236,7 +244,7 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/1TBLbxQTB2YHD93g9?embedded=true">Loading…</iframe>
+      <iframe src="https://forms.gle/nLWE1BMyaw4gcEun8">Loading…</iframe>
     </div>
   </section>
 
@@ -256,10 +264,21 @@
         document.body.appendChild(fly);
       }
     }
+
     const toggle = document.getElementById("themeToggle");
+
     function setTheme(mode){
-      if(mode==="light"){document.body.classList.add("light");toggle.textContent="🌙";}
-      else {document.body.classList.remove("light");toggle.textContent="🌞";}
+      if(mode==="light"){
+        document.body.classList.add("light");
+        toggle.textContent="🌙";
+      } else {
+        document.body.classList.remove("light");
+        toggle.textContent="🌞";
+      }
       localStorage.setItem("theme",mode);
       spawnFireflies();
     }
+
+    // toggle click event
+    toggle.addEventListener("click",()=>{
+      const mode=document.body.classList.contains("light")?"dark":"
