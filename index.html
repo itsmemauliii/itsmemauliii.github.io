@@ -15,8 +15,8 @@
       --border: rgba(255,79,163,.3);
       --text: #ffeaff;
       --muted: #d8b6e5;
-      --firefly: var(--neon-alt);
-      --firefly-glow: var(--neon);
+      --bubble: var(--neon-alt);
+      --bubble-glow: var(--neon);
       --knob-glow: #ff4fa3;
     }
     /* ==== Light Day Theme ==== */
@@ -28,8 +28,8 @@
       --border: rgba(0,0,0,.1);
       --neon: #ff3e90;
       --neon-alt: #ffb347;
-      --firefly: #ffea94;
-      --firefly-glow: #ffcc33;
+      --bubble: #ffea94;
+      --bubble-glow: #ffcc33;
       --knob-glow: #ffb347;
       background:#fffdf7;
     }
@@ -108,7 +108,7 @@
     header p{max-width:550px;margin:15px auto;color:var(--muted);}
     .tagline span{color:var(--neon-alt);font-weight:700;}
 
-    /* Magic Words */
+    /* Magic Words continuous scroll */
     .magic-words {
       display:inline-block;
       overflow:hidden;
@@ -119,17 +119,12 @@
       display:block;
       line-height:1.8em;
       padding:0 6px;
-      animation:slide 30s infinite, fade 30s infinite;
+      animation:scrollWords 6s linear infinite alternate;
     }
-    @keyframes slide {
-      0%, 10%   { margin-top:0; }
-      33%, 43%  { margin-top:-1.8em; }
-      66%, 76%  { margin-top:-3.6em; }
-      100%      { margin-top:0; }
-    }
-    @keyframes fade {
-      0%, 30%, 60%, 90%, 100% { opacity:1; }
-      15%, 45%, 75% { opacity:0; }
+    @keyframes scrollWords {
+      0%   { margin-top:0; }
+      50%  { margin-top:-3.6em; }
+      100% { margin-top:0; }
     }
 
     /* Skills Bars */
@@ -159,19 +154,21 @@
 
     footer{text-align:center;padding:20px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);}
 
-    /* Fireflies */
-    .firefly {
+    /* Floating Bubbles */
+    .bubble {
       position: fixed;
-      background: var(--firefly);
+      bottom: -100px;
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--firefly), 0 0 18px var(--firefly-glow);
+      background: radial-gradient(circle, var(--bubble-glow), transparent 70%);
+      opacity: 0.5;
+      animation: rise linear infinite;
       pointer-events: none;
       z-index: 0;
-      animation: blink 4s ease-in-out infinite alternate;
     }
-    @keyframes blink {
-      from { box-shadow: 0 0 6px var(--firefly); opacity:.6; }
-      to   { box-shadow: 0 0 20px var(--firefly-glow); opacity:1; }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(1); opacity:.5; }
+      50%  { transform: translateY(-50vh) scale(1.2); opacity:.8; }
+      100% { transform: translateY(-110vh) scale(0.8); opacity:0; }
     }
   </style>
 </head>
@@ -197,7 +194,7 @@
   <header>
     <img src="mauli.jpg" alt="Mauli Patel">
     <div>
-      <h1>Hello, I’m Mauli 👩🏻‍🎓</h1>
+      <h1>Hello, I’m Mauli 👋</h1>
       <p class="tagline">Where <span>data</span> meets <span>storytelling</span>. I 
          <span class="magic-words"><span>Analyze</span><span>Visualize</span><span>Storytell</span></span>.</p>
       <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
@@ -298,30 +295,28 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/szcHCFK5BUDQ3WH86">Loading…</iframe>
+      <iframe src="https://forms.gle/aPeJKsSGirRWSaSo7">Loading…</iframe>
     </div>
   </section>
 
-    <footer>© 2025 Mauli Patel</footer>
+  <footer>© 2025 Mauli Patel</footer>
 
-  <!-- Fireflies + Theme Toggle JS -->
+  <!-- Bubbles + Theme Toggle JS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slider = document.getElementById("themeSlider");
 
-      function spawnFireflies(){
-        document.querySelectorAll(".firefly").forEach(f=>f.remove());
-        for(let i=0;i<30;i++){
-          const fly = document.createElement("div");
-          fly.className = "firefly";
-          const size = Math.random()*6 + 3; // random 3px - 9px
-          fly.style.width = size + "px";
-          fly.style.height = size + "px";
-          fly.style.top = Math.random()*100 + "vh";
-          fly.style.left = Math.random()*100 + "vw";
-          // random drift duration
-          fly.style.animationDuration = (15 + Math.random()*20) + "s, " + (3+Math.random()*4)+"s";
-          document.body.appendChild(fly);
+      function spawnBubbles(){
+        document.querySelectorAll(".bubble").forEach(b=>b.remove());
+        for(let i=0;i<20;i++){
+          const b = document.createElement("div");
+          b.className = "bubble";
+          const size = Math.random()*60 + 20; // 20px - 80px
+          b.style.width = size + "px";
+          b.style.height = size + "px";
+          b.style.left = Math.random()*100 + "vw";
+          b.style.animationDuration = (12 + Math.random()*10) + "s";
+          document.body.appendChild(b);
         }
       }
 
@@ -334,7 +329,7 @@
           slider.checked = false;
         }
         localStorage.setItem("theme", mode);
-        spawnFireflies();
+        spawnBubbles();
       }
 
       // Load saved theme
