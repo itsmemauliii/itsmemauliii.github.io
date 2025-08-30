@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mauli Patel – Portfolio</title>
+  <title>Mauli Patel – Data Analyst & Content Writer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* === Neon Theme === */
     :root {
       --neon: #00d9ff;
       --neon-alt: #ff6ad5;
@@ -16,40 +15,48 @@
       --text: #eaf2ff;
       --muted: #9fb0cc;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
+    body.light {
+      --bg: #f7faff;
+      --text: #0d1a2d;
+      --muted: #556987;
+      --panel: #ffffff;
+      --border: rgba(0,0,0,.1);
+      --neon: #0077ff;
+      --neon-alt: #ff4fa3;
+      background:#f7faff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;transition:all .3s ease;}
     body {
       font-family:'Inter',sans-serif;
-      background:radial-gradient(circle at top left,rgba(0,217,255,.08),transparent),
-                 radial-gradient(circle at bottom right,rgba(255,106,213,.08),transparent),
-                 #050d1a;
+      background:#050d1a;
       color:var(--text); line-height:1.6;
+      overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
     h2 { text-align:center; font-size:2rem; margin:0 0 32px; color:var(--neon); text-shadow:0 0 10px var(--neon);}
     section{padding:80px 20px; max-width:1100px; margin:auto;}
     .grid{display:grid;gap:20px;}
     .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 0 15px rgba(0,217,255,.2);transition:.3s}
-    .card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(0,217,255,.4);}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 0 15px rgba(0,217,255,.2);}
     .btn{display:inline-block;margin:8px;padding:10px 18px;background:var(--neon);color:#041221;font-weight:600;
-      border-radius:10px;box-shadow:0 0 15px var(--neon);transition:.2s;}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 0 25px var(--neon);}
-
-    /* Navbar */
-    nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+      border-radius:10px;box-shadow:0 0 15px var(--neon);}
+    nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
       background:rgba(5,10,25,.85);backdrop-filter:blur(10px);padding:12px 24px;border-bottom:1px solid var(--border);}
+    body.light nav{background:#fff;}
     nav .brand{font-weight:800;font-size:1.2rem;color:var(--neon);text-shadow:0 0 10px var(--neon);}
     nav .links a{margin:0 10px;padding:6px 10px;border-radius:6px;}
     nav .links a:hover{background:rgba(0,217,255,.1);}
-
-    /* Hero */
-    header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;}
+    nav .toggle{cursor:pointer;font-size:1.2rem;background:none;border:none;color:var(--neon);}
+    header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;text-align:center;}
     header img{width:220px;height:220px;border-radius:50%;border:4px solid var(--neon);
       box-shadow:0 0 30px var(--neon),0 0 50px var(--neon-alt);object-fit:cover;}
     header h1{font-size:3rem;text-shadow:0 0 20px var(--neon);}
-    header p{max-width:550px;margin:15px 0;color:#b8d6ff;}
+    header p{max-width:550px;margin:15px auto;color:var(--muted);}
+    .tagline span{color:var(--neon-alt);font-weight:700;}
+    .magic-words{display:inline-block;overflow:hidden;vertical-align:bottom;height:1.2em;}
+    .magic-words span{display:block;animation:slide 6s infinite;}
+    @keyframes slide{0%{margin-top:0;}33%{margin-top:-1.2em;}66%{margin-top:-2.4em;}100%{margin-top:0;}}
 
-    /* Skills Circles */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;justify-items:center;}
     .skill{text-align:center;}
     .circle{width:140px;height:140px;border-radius:50%;border:6px solid var(--neon);
@@ -63,18 +70,35 @@
     @keyframes pulse {0%{box-shadow:0 0 15px var(--neon);}100%{box-shadow:0 0 35px var(--neon);}}
     .circle{animation:pulse 2s infinite alternate;}
 
-    /* Interests */
-    #interests .card h3{color:var(--neon-alt);text-shadow:0 0 8px var(--neon-alt);}
-
-    /* Contact Form */
     form{display:grid;gap:16px;max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--border);
-      border-radius:16px;padding:24px;box-shadow:0 0 25px rgba(0,217,255,.15);}
+      border-radius:16px;padding:24px;}
     input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);
       background:#061020;color:var(--text);}
-    input:focus,textarea:focus{border-color:var(--neon);box-shadow:0 0 10px var(--neon);outline:none;}
-    button[type=submit]{cursor:pointer;}
-
+    body.light input, body.light textarea{background:#fff;color:#000;}
     footer{text-align:center;padding:20px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);}
+
+    /* Fireflies */
+    .firefly {
+      position: fixed;
+      width: 6px; height: 6px;
+      background: var(--neon-alt);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--neon-alt), 0 0 20px var(--neon);
+      animation: drift 20s linear infinite, blink 3s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes drift {
+      0%   { transform: translate(0,0); opacity:.8; }
+      25%  { transform: translate(80px,-120px); opacity:.4; }
+      50%  { transform: translate(-100px,200px); opacity:.9; }
+      75%  { transform: translate(120px,-150px); opacity:.5; }
+      100% { transform: translate(0,0); opacity:.8; }
+    }
+    @keyframes blink {
+      from { box-shadow: 0 0 5px var(--neon-alt); opacity:.6; }
+      to   { box-shadow: 0 0 25px var(--neon); opacity:1; }
+    }
   </style>
 </head>
 <body>
@@ -85,6 +109,7 @@
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
       <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
       <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
+      <button class="toggle" id="themeToggle">🌙</button>
     </div>
   </nav>
 
@@ -93,30 +118,13 @@
     <img src="mauli.jpg" alt="Mauli Patel">
     <div>
       <h1>Hello, I’m Mauli 👋</h1>
-      <p>Turning <b>data</b> into insights and insights into stories. I build interactive dashboards, automate reporting, and create beginner-friendly AI & data content.</p>
+      <p class="tagline">Where <span>data</span> meets <span>storytelling</span>. I 
+         <span class="magic-words"><span>Analyze</span><span>Visualize</span><span>Storytell</span></span>.</p>
       <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
       <a href="https://github.com/itsmemauliii" target="_blank" class="btn">GitHub</a>
       <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" class="btn">Tableau</a>
     </div>
   </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About</h2>
-    <div class="grid responsive">
-      <div class="card">
-        <p>Currently pursuing MSc in Big Data Analytics at St. Xavier's College, Ahmedabad (2024–2026) after completing a BSc in Information Technology at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content. I founded <b>Tech Data Hub</b> to share resources for beginners in AI & data science.</p>
-      </div>
-      <div class="card">
-        <h3>Highlights</h3>
-        <ul>
-          <li>FocusWhiz – Productivity Spellcaster</li>
-          <li>Flavor Finder – NLP Food Recommendation</li>
-          <li><a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank">Dashboards</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <!-- SKILLS -->
   <section id="skills">
@@ -125,77 +133,42 @@
       <div class="skill"><div class="circle" data-skill="Python" data-percent="92"></div><p>Programming & Analysis</p></div>
       <div class="skill"><div class="circle" data-skill="Tableau" data-percent="88"></div><p>Data Visualization</p></div>
       <div class="skill"><div class="circle" data-skill="SQL" data-percent="84"></div><p>Databases & Big Data</p></div>
+      <div class="skill"><div class="circle" data-skill="Writing" data-percent="95"></div><p>Storytelling & Communication</p></div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="grid responsive">
-      <div class="card"><h3>Flavor Finder</h3><p>NLP Food Recommendation using TF-IDF & cosine similarity with Streamlit UI.</p><a class="btn" href="https://nlpprojectrestaurant.streamlit.app/" target="_blank">Live Demo</a></div>
-      <div class="card"><h3>FocusWhiz</h3><p>Detects distraction patterns and generates personalized focus prompts.</p><a class="btn" href="https://huggingface.co/spaces/itsmemauli/focuswhiz" target="_blank">Live Demo</a></div>
-      <div class="card"><h3>Analytics Dashboards</h3><p>Interactive dashboards for KPI tracking and automated reporting.</p><a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank">View Work</a></div>
-    </div>
-  </section>
-
-  <!-- WRITING -->
-  <section id="writing">
-    <h2>Writing</h2>
-    <div class="grid responsive">
-      <div class="card"><h3>My Growth Diaries</h3><p>Reflections and lessons on career growth.</p></div>
-      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from real-world data projects.</p></div>
-      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p></div>
-      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p></div>
-    </div>
-    <h3 style="text-align:center;margin-top:30px;">Featured Posts</h3>
-    <div class="grid responsive">
-      <div class="card"><span class="chip">Featured</span><h3>Explore DEV Community Projects</h3></div>
-      <div class="card"><span class="chip">Journey</span><h3>Postman API Fundamentals Journey</h3></div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="grid responsive">
-      <div class="card"><h3>MSc – Big Data Analytics</h3><p>2024–2026 · St. Xavier's College</p></div>
-      <div class="card"><h3>BSc – Information Technology</h3><p>2021–2024 · GLS University</p></div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="grid responsive">
-      <div class="card"><h3>Cisco</h3><p>Data Analytics Essentials</p></div>
-      <div class="card"><h3>IBM</h3><p>Data Analysis Using Python</p></div>
-      <div class="card"><h3>HP LIFE</h3><p>Data Science & Analytics</p></div>
-    </div>
-  </section>
-
-  <!-- INTERESTS -->
-  <section id="interests">
-    <h2>My Interests</h2>
-    <div class="grid responsive">
-      <div class="card"><h3>✈️ Travel</h3><p>Exploring new places and cultures to inspire creativity.</p></div>
-      <div class="card"><h3>📸 Photography</h3><p>Capturing moments and telling stories visually.</p></div>
-      <div class="card"><h3>📊 Data Storytelling</h3><p>Turning raw data into meaningful narratives.</p></div>
-      <div class="card"><h3>🎶 Music</h3><p>Enjoying melodies that recharge my mind and fuel focus.</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Reach Out to Me</h2>
-    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="subject" placeholder="Subject">
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
+  <!-- Other sections: About, Projects, Writing, Education, Certifications, Interests, Contact -->
+  <!-- ... keep the same as previous code ... -->
 
   <footer>© 2025 Mauli Patel</footer>
+
+  <!-- Fireflies + Theme Toggle JS -->
+  <script>
+    // Fireflies
+    const NUM_FIREFLIES = 25;
+    for(let i=0;i<NUM_FIREFLIES;i++){
+      const fly = document.createElement("div");
+      fly.className = "firefly";
+      fly.style.top = Math.random()*100 + "vh";
+      fly.style.left = Math.random()*100 + "vw";
+      fly.style.animationDuration = (15 + Math.random()*15) + "s, " + (2+Math.random()*3)+"s";
+      document.body.appendChild(fly);
+    }
+
+    // Theme Toggle
+    const toggle = document.getElementById("themeToggle");
+    function setTheme(mode){
+      if(mode==="light"){document.body.classList.add("light");toggle.textContent="🌙";}
+      else {document.body.classList.remove("light");toggle.textContent="🌞";}
+      localStorage.setItem("theme",mode);
+    }
+    toggle.addEventListener("click",()=>{
+      const mode=document.body.classList.contains("light")?"dark":"light";
+      setTheme(mode);
+    });
+    // Load saved theme
+    const saved=localStorage.getItem("theme")||"dark";
+    setTheme(saved);
+  </script>
 </body>
 </html>
