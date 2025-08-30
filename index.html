@@ -62,18 +62,29 @@
     header h1{font-size:3rem;text-shadow:0 0 20px var(--neon);}
     header p{max-width:550px;margin:15px auto;color:var(--muted);}
     .tagline span{color:var(--neon-alt);font-weight:700;}
-    .magic-words{display:inline-block;overflow:hidden;vertical-align:bottom;height:1.6em;}
-    .magic-words span{
-      display:block;
-      line-height:1.6em;
-      padding:0 6px;
-      animation:slide 10s infinite;
+
+    /* Magic Words (fixed + fade) */
+    .magic-words {
+      display:inline-block;
+      overflow:hidden;
+      vertical-align:bottom;
+      height:1.8em;
     }
-    @keyframes slide{
-      0%{margin-top:0;}
-      33%{margin-top:-1.6em;}
-      66%{margin-top:-3.2em;}
-      100%{margin-top:0;}
+    .magic-words span {
+      display:block;
+      line-height:1.8em;
+      padding:0 6px;
+      animation:slide 30s infinite, fade 30s infinite;
+    }
+    @keyframes slide {
+      0%, 10%   { margin-top:0; }
+      33%, 43%  { margin-top:-1.8em; }
+      66%, 76%  { margin-top:-3.6em; }
+      100%      { margin-top:0; }
+    }
+    @keyframes fade {
+      0%, 30%, 60%, 90%, 100% { opacity:1; }
+      15%, 45%, 75% { opacity:0; }
     }
 
     /* Skills Bars */
@@ -244,7 +255,7 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/nLWE1BMyaw4gcEun8">Loading…</iframe>
+      <iframe src="https://forms.gle/tv3jkcM1ioKBT84eA">Loading…</iframe>
     </div>
   </section>
 
@@ -281,4 +292,15 @@
 
     // toggle click event
     toggle.addEventListener("click",()=>{
-      const mode=document.body.classList.contains("light")?"dark":"
+      const mode=document.body.classList.contains("light")?"dark":"light";
+      setTheme(mode);
+    });
+
+    // apply saved theme on load
+    window.addEventListener("DOMContentLoaded",()=>{
+      const saved=localStorage.getItem("theme")||"dark";
+      setTheme(saved);
+    });
+  </script>
+</body>
+</html>
