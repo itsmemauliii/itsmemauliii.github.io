@@ -3,346 +3,175 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mauli Patel – Data Analyst & Content Writer</title>
-  <meta name="description" content="Portfolio of Mauli Patel – Data Analyst & Content Writer. Python, SQL, Tableau, Power BI, and beginner‑friendly AI/data content." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Mauli Patel – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ========== THEME ==========
-       A calmer, tighter, premium look.
-    */
+    /* === Neon Blue Theme === */
     :root {
-      --bg: #0b0f17;
-      --bg-2:#0f1522;
-      --panel:#0f1628;
-      --card:#111a2e;
-      --border: rgba(255,255,255,.08);
-      --text:#eaf2ff;
-      --muted:#9fb0cc;
-      --brand:#7fb0ff;
-      --brand-2:#8ef6d1;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --radius-sm:14px;
-      --max: 1024px;
+      --neon: #00d9ff;
+      --bg: #050d1a;
+      --panel: rgba(0,217,255,.05);
+      --border: rgba(0,217,255,.3);
+      --text: #eaf2ff;
+      --muted: #9fb0cc;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
-    body{
-      color:var(--text);
-      background: radial-gradient(1000px 400px at 5% -10%, rgba(127,176,255,.10),transparent),
-                  radial-gradient(900px 400px at 90% -20%, rgba(142,246,209,.06),transparent),
-                  linear-gradient(180deg, var(--bg), #0a1020 55%, #070b15);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height:1.55;
-      letter-spacing:.1px;
-      -webkit-font-smoothing: antialiased;
+    *{box-sizing:border-box;}
+    body {
+      margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    h2 { text-align:center; font-size:1.8rem; margin:0 0 32px; color:var(--neon); text-shadow:0 0 10px var(--neon);}
+    section{padding:70px 20px; max-width:1100px; margin:auto;}
 
-    /* ===== NAV ===== */
-    .nav{position:sticky;top:0;z-index:60;background:rgba(11,15,23,.7);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--border)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-    .brand{font-weight:900;letter-spacing:.2px}
-    .brand b{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .menu{display:flex;gap:10px;align-items:center}
-    .menu a{padding:8px 10px;border-radius:10px;font-size:.95rem;color:#d8e6ff}
-    .menu a:hover{background:rgba(255,255,255,.06)}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#051527;font-weight:800}
-    .hamburger{display:none}
-    @media (max-width: 820px){
-      .menu{display:none}
-      .hamburger{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid var(--border);background:var(--panel)}
-      .mobile{display:none;position:fixed;inset:66px 14px auto 14px;background:#0d1322;border:1px solid var(--border);border-radius:16px;padding:12px}
-      .mobile a{display:block;padding:12px;border-radius:10px}
-      .mobile a:hover{background:rgba(255,255,255,.06)}
-    }
+    /* Navbar */
+    nav {position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+      background:rgba(5,10,25,.85);backdrop-filter:blur(10px);padding:12px 24px;border-bottom:1px solid var(--border);}
+    nav .brand{font-weight:800;font-size:1.2rem;color:var(--neon);text-shadow:0 0 10px var(--neon);}
+    nav .links a{margin:0 10px;padding:6px 10px;border-radius:6px;}
+    nav .links a:hover{background:rgba(0,217,255,.1);}
 
-    /* ===== HERO ===== */
-    header.hero{padding:72px 0 8px}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:center}
-    @media (max-width: 980px){.hero-grid{grid-template-columns:1fr}}
-    .chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:.83rem;background:rgba(255,255,255,.02)}
-    h1{font-size:clamp(2.2rem,5.4vw,3.4rem);line-height:1.03;margin:.6rem 0 .4rem;letter-spacing:-.5px}
-    .lead{font-size:1.05rem;color:#cfe0ff;opacity:.95;max-width:58ch}
-    .hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--border);transition:transform .18s ease}
-    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.22)}
-    .stats{display:flex;gap:12px;margin:16px 0 0;flex-wrap:wrap}
-    .stat{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid var(--border);padding:12px 14px;border-radius:14px;box-shadow:var(--shadow);min-width:140px}
-    .stat b{font-size:1.15rem}
+    /* Hero */
+    header{text-align:center;padding:80px 20px 60px;}
+    header h1{font-size:2.8rem;text-shadow:0 0 15px var(--neon);}
+    header p{max-width:600px;margin:12px auto;color:#b8d6ff;}
+    .btn{display:inline-block;margin:8px;padding:10px 16px;background:var(--neon);color:#041221;font-weight:600;
+      border-radius:10px;box-shadow:0 0 15px var(--neon);transition:.2s;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 25px var(--neon);}
 
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-    .badges{display:flex;flex-wrap:wrap;gap:10px}
-    .badge{padding:8px 10px;background:var(--panel);border:1px solid var(--border);border-radius:999px;font-size:.9rem}
+    /* Cards & Grids */
+    .grid{display:grid;gap:20px;}
+    .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 0 15px rgba(0,217,255,.1);}
+    .card h3{margin-top:0;}
 
-    /* ===== SECTIONS ===== */
-    section{padding:52px 0}
-    .section-title{font-size:1.55rem;margin:0 0 16px}
-    .muted{color:var(--muted)}
-    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:24px 0}
+    /* Skills with Neon Circles */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;justify-items:center;}
+    .skill{text-align:center;}
+    .circle{width:120px;height:120px;border-radius:50%;border:6px solid var(--neon);box-shadow:0 0 20px var(--neon);
+      position:relative;margin:auto;animation:glow 2s infinite alternate;}
+    .circle::after{content:attr(data-skill);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      color:var(--neon);font-weight:700;}
+    @keyframes glow {from{box-shadow:0 0 10px var(--neon);}to{box-shadow:0 0 25px var(--neon);}}
 
-    /* ===== CARDS & GRIDS ===== */
-    .grid{display:grid;gap:16px}
-    .grid.responsive{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-    .grid.two{grid-template-columns:1.3fr .7fr}
-    .grid.two.equal{grid-template-columns:repeat(2,minmax(0,1fr))}
-    @media (max-width: 980px){.grid.two,.grid.two.equal{grid-template-columns:1fr}}
+    /* Writing section */
+    .chip{display:inline-block;padding:4px 10px;background:rgba(0,217,255,.2);border-radius:20px;font-size:.8rem;color:var(--neon);}
 
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.018));border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:2px 0 8px;font-size:1.12rem}
-
-    /* ===== BARS (skills) ===== */
-    .bar{height:8px;border-radius:999px;background:#0f1628;border:1px solid var(--border);overflow:hidden}
-    .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
-
-    /* ===== ANIMATIONS ===== */
-    .reveal{opacity:0;transform:translateY(12px);transition:opacity .45s ease, transform .45s ease}
-    .reveal.show{opacity:1;transform:translateY(0)}
-
-    /* ===== FOOTER ===== */
-    footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted)}
+    /* Contact Form */
+    form{display:grid;gap:16px;max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--border);
+      border-radius:16px;padding:24px;box-shadow:0 0 25px rgba(0,217,255,.15);}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#061020;color:var(--text);}
+    input:focus,textarea:focus{border-color:var(--neon);box-shadow:0 0 10px var(--neon);outline:none;}
+    button[type=submit]{cursor:pointer;}
+    footer{text-align:center;padding:20px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);}
   </style>
 </head>
 <body>
   <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><b>Mauli</b> Patel</div>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">See my work →</a>
-      </div>
-      <button class="hamburger" id="hamburger">Menu ▾</button>
-    </div>
-    <div class="container mobile" id="mobile">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#writing">Writing</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-      <a class="cta" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">See my work →</a>
+  <nav>
+    <div class="brand">Mauli Patel</div>
+    <div class="links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
+      <a href="#contact">Reach Out</a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
-    <div class="container hero-grid reveal">
-      <div>
-        <span class="chip">Data Analyst & Content Writer</span>
-        <h1>Hello, I’m Mauli <span aria-hidden>👋</span></h1>
-        <p class="lead">Turning <b>data</b> into insights and insights into stories. I build interactive dashboards, automate reporting, and communicate results through beginner‑friendly content.</p>
-        <div class="hero-links">
-          <a class="btn" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
-          <a class="btn" href="#writing">Explore my writing</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><b>10k+</b><br><span class="muted">LinkedIn audience</span></div>
-          <div class="stat"><b>6+</b><br><span class="muted">Major tools</span></div>
-          <div class="stat"><b>2</b><br><span class="muted">Interactive demos</span></div>
-        </div>
-      </div>
-      <aside class="hero-card">
-        <div class="badges">
-          <span class="badge">Python</span>
-          <span class="badge">SQL / MySQL</span>
-          <span class="badge">Pandas/NumPy</span>
-          <span class="badge">Matplotlib</span>
-          <span class="badge">Tableau</span>
-          <span class="badge">Power BI</span>
-          <span class="badge">Excel</span>
-          <span class="badge">NLP</span>
-          <span class="badge">Scikit‑learn</span>
-          <span class="badge">Spark & Hive</span>
-        </div>
-        <p class="muted" style="margin-top:12px">Built with ♥ and hosted on GitHub Pages.</p>
-      </aside>
-    </div>
+  <header>
+    <h1>Hello, I’m Mauli 👋</h1>
+    <p>Turning <b>data</b> into insights and insights into stories. I build interactive dashboards, automate reporting, and create beginner-friendly AI & data content.</p>
+    <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
+    <a href="https://github.com/itsmemauliii" target="_blank" class="btn">GitHub</a>
+    <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" class="btn">Tableau</a>
   </header>
-  <div class="divider container"></div>
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="container grid two reveal">
-      <div>
-        <h2 class="section-title">About</h2>
-        <p class="muted">Currently pursuing MSc in Big Data Analytics at St. Xavier's College, Ahmedabad (2024–2026) after completing a BSc in Information Technology at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content. Research interests include deepfake detection and lifestyle analytics & work‑life balance. I founded <b>Tech Data Hub</b> to share hands‑on resources for beginners in AI & data science.</p>
+    <h2>About</h2>
+    <div class="grid two">
+      <div class="card">
+        <p>Currently pursuing MSc in Big Data Analytics at St. Xavier's College, Ahmedabad (2024–2026) after completing a BSc in Information Technology at GLS University (2021–2024). I love building practical data apps and simplifying complex topics through content. I founded <b>Tech Data Hub</b> to share resources for beginners in AI & data science.</p>
       </div>
-      <aside class="card">
+      <div class="card">
         <h3>Highlights</h3>
-        <ul style="margin:8px 0 0 18px;line-height:1.8">
-          <li>Interactive app: <b>FocusWhiz – The Productivity Spellcaster</b></li>
-          <li>NLP web app: <b>Flavor Finder – Food Recommendation</b></li>
-          <li>Dashboards: <a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau Public profile</a></li>
+        <ul>
+          <li>FocusWhiz – Productivity Spellcaster</li>
+          <li>Flavor Finder – NLP Food Recommendation</li>
+          <li><a href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank">Dashboards</a></li>
         </ul>
-      </aside>
+      </div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="container reveal">
-      <h2 class="section-title">Skills</h2>
-      <div class="grid responsive">
-        <div class="card">
-          <span class="muted">💻 Programming & Analysis</span>
-          <div style="margin-top:14px;display:grid;gap:12px">
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Python</span><span>Expert</span></div><div class="bar"><span style="width:92%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Pandas / NumPy</span><span>Advanced</span></div><div class="bar"><span style="width:88%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Machine Learning</span><span>Intermediate</span></div><div class="bar"><span style="width:75%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>R Programming</span><span>Intermediate</span></div><div class="bar"><span style="width:65%"></span></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <span class="muted">📊 Data Visualization</span>
-          <div style="margin-top:14px;display:grid;gap:12px">
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Tableau</span><span>Advanced</span></div><div class="bar"><span style="width:85%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Power BI</span><span>Advanced</span></div><div class="bar"><span style="width:82%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Excel</span><span>Advanced</span></div><div class="bar"><span style="width:80%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Matplotlib / Seaborn</span><span>Intermediate</span></div><div class="bar"><span style="width:70%"></span></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <span class="muted">🗃 Databases & Big Data</span>
-          <div style="margin-top:14px;display:grid;gap:12px">
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>SQL / MySQL</span><span>Advanced</span></div><div class="bar"><span style="width:84%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Spark / Hadoop</span><span>Intermediate</span></div><div class="bar"><span style="width:68%"></span></div></div>
-            <div><div class="muted" style="display:flex;justify-content:space-between"><span>Hive / Pig</span><span>Intermediate</span></div><div class="bar"><span style="width:60%"></span></div></div>
-          </div>
-        </div>
-      </div>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><div class="circle" data-skill="Python"></div><p>Programming & Analysis</p></div>
+      <div class="skill"><div class="circle" data-skill="Tableau"></div><p>Data Visualization</p></div>
+      <div class="skill"><div class="circle" data-skill="SQL"></div><p>Databases & Big Data</p></div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="container reveal">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid responsive">
-        <article class="card">
-          <span class="muted">Python • NLP • Streamlit</span>
-          <h3>Flavor Finder – NLP Food Recommendation</h3>
-          <p class="muted">Recipe recommendation using TF‑IDF & cosine similarity with an interactive Streamlit UI for dynamic search, CSV upload, and real‑time suggestions.</p>
-          <div class="hero-links">
-            <a class="btn" href="https://nlpprojectrestaurant.streamlit.app/" target="_blank" rel="noreferrer">Live Demo</a>
-            <a class="btn" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">Source (repo list)</a>
-          </div>
-        </article>
-        <article class="card">
-          <span class="muted">Gradio • spaCy • TextBlob</span>
-          <h3>FocusWhiz – The Productivity Spellcaster</h3>
-          <p class="muted">Analyzes user thoughts to detect distraction patterns and generate personalized focus prompts with a gamified feedback loop.</p>
-          <div class="hero-links">
-            <a class="btn" href="https://huggingface.co/spaces/itsmemauli/focuswhiz" target="_blank" rel="noreferrer">Live Demo</a>
-          </div>
-        </article>
-        <article class="card">
-          <span class="muted">Tableau / Power BI</span>
-          <h3>Analytics Dashboards</h3>
-          <p class="muted">Interactive dashboards for exploratory analysis, KPI tracking, and automated reporting.</p>
-          <div class="hero-links">
-            <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">View on Tableau</a>
-          </div>
-        </article>
-      </div>
+    <h2>Projects</h2>
+    <div class="grid responsive">
+      <div class="card"><h3>Flavor Finder</h3><p>NLP Food Recommendation using TF-IDF & cosine similarity with Streamlit UI.</p><a class="btn" href="https://nlpprojectrestaurant.streamlit.app/" target="_blank">Live Demo</a></div>
+      <div class="card"><h3>FocusWhiz</h3><p>Detects distraction patterns and generates personalized focus prompts.</p><a class="btn" href="https://huggingface.co/spaces/itsmemauli/focuswhiz" target="_blank">Live Demo</a></div>
+      <div class="card"><h3>Analytics Dashboards</h3><p>Interactive dashboards for KPI tracking and automated reporting.</p><a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank">View Work</a></div>
     </div>
   </section>
 
   <!-- WRITING -->
   <section id="writing">
-    <div class="container reveal">
-      <h2 class="section-title">Writing</h2>
-      <p class="muted">I create beginner‑friendly content on AI, data science, and career growth via Tech Data Hub and LinkedIn. Explore selected posts and newsletters below.</p>
-
-      <h3 class="muted" style="margin:18px 0 10px">Newsletters</h3>
-      <div class="grid responsive">
-        <div class="card"><h3>My Growth Diaries</h3><p class="muted">Reflections, lessons, and insights on career growth and self‑development.</p><a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7328713593259012096" target="_blank" rel="noreferrer">Subscribe</a></div>
-        <div class="card"><h3>Tech Data Chronicles</h3><p class="muted">Stories and breakdowns of real‑world data science projects & concepts.</p><a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7165945421201063936" target="_blank" rel="noreferrer">Subscribe</a></div>
-        <div class="card"><h3>AI Curious Techie</h3><p class="muted">Bite‑sized insights for beginners exploring AI tools and trends.</p><a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7264225606186225664" target="_blank" rel="noreferrer">Subscribe</a></div>
-        <div class="card"><h3>Tech Data Hub</h3><p class="muted">Beginner‑friendly AI & data resources, toolkits, and career guidance.</p><a class="btn" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7209417320090238976" target="_blank" rel="noreferrer">Subscribe</a></div>
-      </div>
-
-      <h3 class="muted" style="margin:24px 0 10px">Featured Posts</h3>
-      <div class="grid responsive">
-        <div class="card"><span class="chip">Featured Post</span><h3>Explore My DEV Community Projects & Experiments</h3><p class="muted">🛠 Explore my learning journey, weekend projects, and experiments in data science, AI, and beyond.</p><a class="btn" href="https://www.linkedin.com/in/itsmemauliii/recent-activity/posts/" target="_blank" rel="noreferrer">Journey</a></div>
-        <div class="card"><span class="chip">Journey</span><h3>Postman API Fundamentals – Student Expert Journey</h3><p class="muted">Learning APIs step by step → from basics to building confidence in requests, responses, and collections.</p><a class="btn" href="https://www.linkedin.com/in/itsmemauliii/recent-activity/all/" target="_blank" rel="noreferrer">Explore more on LinkedIn</a></div>
-      </div>
+    <h2>Writing</h2>
+    <div class="grid responsive">
+      <div class="card"><h3>My Growth Diaries</h3><p>Reflections and lessons on career growth.</p><a class="btn" href="#">Subscribe</a></div>
+      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from real-world data projects.</p><a class="btn" href="#">Subscribe</a></div>
+      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p><a class="btn" href="#">Subscribe</a></div>
+      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p><a class="btn" href="#">Subscribe</a></div>
+    </div>
+    <h3 style="text-align:center;margin-top:30px;">Featured Posts</h3>
+    <div class="grid responsive">
+      <div class="card"><span class="chip">Featured</span><h3>Explore DEV Community Projects</h3></div>
+      <div class="card"><span class="chip">Journey</span><h3>Postman API Fundamentals Journey</h3></div>
     </div>
   </section>
 
   <!-- EDUCATION -->
   <section id="education">
-    <div class="container reveal">
-      <h2 class="section-title">Education</h2>
-      <div class="grid responsive">
-        <div class="card"><h3>MSc – Big Data Analytics</h3><p class="muted">Jun 2024 – Jun 2026 · St. Xavier's College, Ahmedabad</p><p class="muted">Statistical Methods, ML, Data Mining, Optimization, Big Data Tools (Spark/Hadoop), Econometrics.</p></div>
-        <div class="card"><h3>BSc – Information Technology</h3><p class="muted">Jun 2021 – Jun 2024 · GLS University</p><p class="muted">AI/ML, Data Structures, Web Development, DBMS, Software Engineering.</p></div>
-      </div>
+    <h2>Education</h2>
+    <div class="grid responsive">
+      <div class="card"><h3>MSc – Big Data Analytics</h3><p>2024–2026 · St. Xavier's College</p></div>
+      <div class="card"><h3>BSc – Information Technology</h3><p>2021–2024 · GLS University</p></div>
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
-    <div class="container reveal">
-      <h2 class="section-title">Certifications</h2>
-      <div class="grid responsive">
-        <div class="card"><h3>Cisco – Data Analytics Essentials</h3><p class="muted">July 2023</p></div>
-        <div class="card"><h3>IBM – Data Analysis Using Python</h3><p class="muted">August 2024</p></div>
-        <div class="card"><h3>HP LIFE – Data Science & Analytics</h3><p class="muted">June 2025</p></div>
-      </div>
+    <h2>Certifications</h2>
+    <div class="grid responsive">
+      <div class="card"><h3>Cisco</h3><p>Data Analytics Essentials</p></div>
+      <div class="card"><h3>IBM</h3><p>Data Analysis Using Python</p></div>
+      <div class="card"><h3>HP LIFE</h3><p>Data Science & Analytics</p></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="container reveal">
-      <div class="grid two equal">
-        <div>
-          <h2 class="section-title">Contact</h2>
-          <p>Email: <a href="mailto:maulipatel18112003@gmail.com">maulipatel18112003@gmail.com</a></p>
-          <p class="muted">Ahmedabad, India · Remote‑friendly</p>
-        </div>
-        <div class="card">
-          <h3>Quick Links</h3>
-          <div class="hero-links" style="margin-top:6px">
-            <a class="btn" href="https://github.com/itsmemauliii" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/itsmemauliii" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://public.tableau.com/app/profile/dataqueenmauli/" target="_blank" rel="noreferrer">Tableau</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h2>Reach Out to Me</h2>
+    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject">
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    <div class="container">© 2025 Mauli Patel</div>
+    © 2025 Mauli Patel
   </footer>
-
-  <script>
-    // mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobile = document.getElementById('mobile');
-    hamburger?.addEventListener('click', () => {
-      mobile.style.display = mobile.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // reveal on scroll
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
-    },{threshold:.14});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
 </body>
 </html>
