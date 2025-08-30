@@ -6,7 +6,6 @@
   <title>Mauli Patel – Data Analyst & Content Writer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ==== Neon Night Theme ==== */
     :root {
       --neon: #ff4fa3;        
       --neon-alt: #9b5cff;    
@@ -15,11 +14,8 @@
       --border: rgba(255,79,163,.3);
       --text: #ffeaff;
       --muted: #d8b6e5;
-      --bubble: var(--neon-alt);
-      --bubble-glow: var(--neon);
       --knob-glow: #ff4fa3;
     }
-    /* ==== Light Day Theme ==== */
     body.light {
       --bg: #fffdf7;
       --text: #2a002b;
@@ -28,8 +24,6 @@
       --border: rgba(0,0,0,.1);
       --neon: #ff3e90;
       --neon-alt: #ffb347;
-      --bubble: #ffea94;
-      --bubble-glow: #ffcc33;
       --knob-glow: #ffb347;
       background:#fffdf7;
     }
@@ -66,11 +60,7 @@
       height: 32px;
       margin-left:15px;
     }
-    .theme-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+    .theme-switch input { opacity:0;width:0;height:0;}
     .slider {
       position: absolute;
       cursor: pointer;
@@ -88,18 +78,13 @@
     .slider::before {
       content: "";
       position: absolute;
-      height: 24px;
-      width: 24px;
-      left: 4px;
-      bottom: 4px;
-      background: #fff;
-      border-radius: 50%;
+      height: 24px; width: 24px;
+      left: 4px; bottom: 4px;
+      background: #fff; border-radius: 50%;
       box-shadow: 0 0 15px var(--knob-glow);
       transition: .4s;
     }
-    input:checked + .slider::before {
-      transform: translateX(28px);
-    }
+    input:checked + .slider::before { transform: translateX(28px); }
 
     header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;text-align:center;}
     header img{width:220px;height:220px;border-radius:50%;border:4px solid var(--neon);
@@ -157,18 +142,17 @@
     /* Floating Bubbles */
     .bubble {
       position: fixed;
-      bottom: -100px;
+      bottom: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle, var(--bubble-glow), transparent 70%);
-      opacity: 0.5;
+      opacity: 0.6;
       animation: rise linear infinite;
       pointer-events: none;
       z-index: 0;
     }
     @keyframes rise {
       0%   { transform: translateY(0) scale(1); opacity:.5; }
-      50%  { transform: translateY(-50vh) scale(1.2); opacity:.8; }
-      100% { transform: translateY(-110vh) scale(0.8); opacity:0; }
+      50%  { transform: translateY(-60vh) scale(1.2); opacity:.8; }
+      100% { transform: translateY(-120vh) scale(0.8); opacity:0; }
     }
   </style>
 </head>
@@ -180,12 +164,9 @@
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
       <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
       <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
-      <!-- Slider Toggle -->
       <div class="theme-switch">
         <input type="checkbox" id="themeSlider">
-        <label for="themeSlider" class="slider">
-          <span>🌙</span><span>☀️</span>
-        </label>
+        <label for="themeSlider" class="slider"><span>🌙</span><span>☀️</span></label>
       </div>
     </div>
   </nav>
@@ -194,7 +175,7 @@
   <header>
     <img src="mauli.jpg" alt="Mauli Patel">
     <div>
-      <h1>Hello, I’m Mauli 👋</h1>
+      <h1>Hello, I’m Mauli👩🏻‍🎓</h1>
       <p class="tagline">Where <span>data</span> meets <span>storytelling</span>. I 
          <span class="magic-words"><span>Analyze</span><span>Visualize</span><span>Storytell</span></span>.</p>
       <a href="https://www.linkedin.com/in/itsmemauliii" target="_blank" class="btn">LinkedIn</a>
@@ -295,7 +276,7 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/aPeJKsSGirRWSaSo7">Loading…</iframe>
+      <iframe src="https://forms.gle/xTMacNm3qf5mYq2v5">Loading…</iframe>
     </div>
   </section>
 
@@ -308,14 +289,18 @@
 
       function spawnBubbles(){
         document.querySelectorAll(".bubble").forEach(b=>b.remove());
-        for(let i=0;i<20;i++){
+        const colors = ["#ff4fa3", "#9b5cff", "#40e0d0", "#ffcc33"];
+        for(let i=0;i<25;i++){
           const b = document.createElement("div");
           b.className = "bubble";
-          const size = Math.random()*60 + 20; // 20px - 80px
+          const size = Math.random()*60 + 20;
           b.style.width = size + "px";
           b.style.height = size + "px";
           b.style.left = Math.random()*100 + "vw";
-          b.style.animationDuration = (12 + Math.random()*10) + "s";
+          const color = colors[Math.floor(Math.random()*colors.length)];
+          b.style.background = `radial-gradient(circle, ${color}, transparent 70%)`;
+          b.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}`;
+          b.style.animationDuration = (10 + Math.random()*15) + "s";
           document.body.appendChild(b);
         }
       }
@@ -332,11 +317,9 @@
         spawnBubbles();
       }
 
-      // Load saved theme
       const savedTheme = localStorage.getItem("theme") || "dark";
       setTheme(savedTheme);
 
-      // Toggle theme on slider change
       slider.addEventListener("change", () => {
         const newMode = slider.checked ? "light" : "dark";
         setTheme(newMode);
