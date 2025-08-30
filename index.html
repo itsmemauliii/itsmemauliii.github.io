@@ -8,28 +8,28 @@
   <style>
     /* ==== Neon Night Theme ==== */
     :root {
-      --neon: #00d9ff;
-      --neon-alt: #ff6ad5;
-      --bg: #050d1a;
-      --panel: rgba(0,217,255,.05);
-      --border: rgba(0,217,255,.3);
-      --text: #eaf2ff;
-      --muted: #9fb0cc;
+      --neon: #ff4fa3;        /* neon pink */
+      --neon-alt: #9b5cff;    /* neon purple */
+      --bg: #12001a;          /* dark purple background */
+      --panel: rgba(255,79,163,.05);
+      --border: rgba(255,79,163,.3);
+      --text: #ffeaff;
+      --muted: #d8b6e5;
       --firefly: var(--neon-alt);
       --firefly-glow: var(--neon);
     }
     /* ==== Light Day Theme ==== */
     body.light {
-      --bg: #f7faff;
-      --text: #0d1a2d;
-      --muted: #556987;
+      --bg: #fff4fb;
+      --text: #2a002b;
+      --muted: #6a446d;
       --panel: #ffffff;
       --border: rgba(0,0,0,.1);
-      --neon: #0077ff;
-      --neon-alt: #ffb347;
-      --firefly: #ffd166;
-      --firefly-glow: #ff7eb3;
-      background:#f7faff;
+      --neon: #ff3e90;
+      --neon-alt: #a852ff;
+      --firefly: #ff9dd9;
+      --firefly-glow: #d28bff;
+      background:#fff4fb;
     }
 
     *{box-sizing:border-box;margin:0;padding:0;transition:all .3s ease;}
@@ -45,15 +45,16 @@
     section{padding:80px 20px; max-width:1100px; margin:auto;}
     .grid{display:grid;gap:20px;}
     .grid.responsive{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 0 15px rgba(0,217,255,.2);}
-    .btn{display:inline-block;margin:8px;padding:10px 18px;background:var(--neon);color:#041221;font-weight:600;
-      border-radius:10px;box-shadow:0 0 15px var(--neon);}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 0 15px rgba(255,79,163,.25);}
+    .btn{display:inline-block;margin:8px;padding:10px 18px;background:linear-gradient(90deg,var(--neon),var(--neon-alt));
+      color:#fff;font-weight:600;border-radius:10px;box-shadow:0 0 15px var(--neon);}
+    .btn:hover{box-shadow:0 0 25px var(--neon-alt);}
     nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
-      background:rgba(5,10,25,.85);backdrop-filter:blur(10px);padding:12px 24px;border-bottom:1px solid var(--border);}
+      background:rgba(18,0,26,.85);backdrop-filter:blur(10px);padding:12px 24px;border-bottom:1px solid var(--border);}
     body.light nav{background:#fff;}
     nav .brand{font-weight:800;font-size:1.2rem;color:var(--neon);}
     nav .links a{margin:0 10px;padding:6px 10px;border-radius:6px;}
-    nav .links a:hover{background:rgba(0,217,255,.1);}
+    nav .links a:hover{background:rgba(255,79,163,.1);}
     nav .toggle{cursor:pointer;font-size:1.2rem;background:none;border:none;color:var(--neon);}
     header{padding:90px 20px 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px;text-align:center;}
     header img{width:220px;height:220px;border-radius:50%;border:4px solid var(--neon);
@@ -68,15 +69,28 @@
     /* Skills Bars */
     .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
     .skill-card h3{margin-bottom:15px;color:var(--neon-alt);}
-    .bar{height:8px;border-radius:999px;background:#061020;border:1px solid var(--border);overflow:hidden;}
+    .bar{height:8px;border-radius:999px;background:#240030;border:1px solid var(--border);overflow:hidden;}
     .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--neon),var(--neon-alt));}
 
-    /* Contact */
-    form{display:grid;gap:16px;max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--border);
-      border-radius:16px;padding:24px;}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);
-      background:#061020;color:var(--text);}
-    body.light input, body.light textarea{background:#fff;color:#000;}
+    /* Newsletter Subscribe */
+    .card .btn-subscribe {
+      display:inline-block;margin-top:10px;padding:8px 14px;
+      background:linear-gradient(90deg,var(--neon),var(--neon-alt));
+      color:#fff;font-weight:600;border-radius:8px;
+      box-shadow:0 0 12px var(--neon);transition:.2s;
+    }
+    .card .btn-subscribe:hover { box-shadow:0 0 20px var(--neon-alt); }
+
+    /* Google Form embed style */
+    .form-wrapper {
+      max-width:800px;margin:0 auto;
+      border:2px solid var(--neon);
+      border-radius:20px;
+      box-shadow:0 0 30px var(--neon-alt);
+      overflow:hidden;
+    }
+    .form-wrapper iframe { width:100%; height:850px; border:0; }
+
     footer{text-align:center;padding:20px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);}
 
     /* Fireflies */
@@ -108,8 +122,10 @@
   <nav>
     <div class="brand">Mauli Patel</div>
     <div class="links">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
-      <a href="#writing">Writing</a><a href="#education">Education</a><a href="#certifications">Certifications</a>
+      <a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a><a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
       <a href="#interests">Interests</a><a href="#contact">Reach Out</a>
       <button class="toggle" id="themeToggle">🌙</button>
     </div>
@@ -132,14 +148,8 @@
   <section id="about">
     <h2>About</h2>
     <div class="grid responsive">
-      <div class="card">
-        <h3>Analyst’s Mindset</h3>
-        <p>MSc in Big Data Analytics (St. Xavier's College, 2024–2026) after BSc IT at GLS University. Passion for dashboards, NLP apps, and AI-powered tools solving real problems.</p>
-      </div>
-      <div class="card">
-        <h3>Content Writer’s Lens</h3>
-        <p>Numbers are powerful, but stories make them unforgettable. I share hands-on AI/data insights through <b>Tech Data Hub</b> and newsletters.</p>
-      </div>
+      <div class="card"><h3>Analyst’s Mindset</h3><p>MSc in Big Data Analytics (St. Xavier's College, 2024–2026) after BSc IT at GLS University. Passion for dashboards, NLP apps, and AI-powered tools solving real problems.</p></div>
+      <div class="card"><h3>Content Writer’s Lens</h3><p>Numbers are powerful, but stories make them unforgettable. I share hands-on AI/data insights through <b>Tech Data Hub</b> and newsletters.</p></div>
     </div>
   </section>
 
@@ -185,10 +195,10 @@
     <h2>Writing</h2>
     <p style="text-align:center;color:var(--muted);margin-bottom:25px;">I don’t just crunch numbers, I narrate them ✍️</p>
     <div class="grid responsive">
-      <div class="card"><h3>My Growth Diaries</h3><p>Reflections on career growth.</p></div>
-      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from data projects.</p></div>
-      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p></div>
-      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p></div>
+      <div class="card"><h3>My Growth Diaries</h3><p>Reflections on career growth.</p><a class="btn-subscribe" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7328713593259012096" target="_blank">Subscribe</a></div>
+      <div class="card"><h3>Tech Data Chronicles</h3><p>Stories from data projects.</p><a class="btn-subscribe" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7165945421201063936" target="_blank">Subscribe</a></div>
+      <div class="card"><h3>AI Curious Techie</h3><p>Bite-sized AI insights.</p><a class="btn-subscribe" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7264225606186225664" target="_blank">Subscribe</a></div>
+      <div class="card"><h3>Tech Data Hub</h3><p>Beginner-friendly AI resources.</p><a class="btn-subscribe" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7209417320090238976" target="_blank">Subscribe</a></div>
     </div>
   </section>
 
@@ -224,11 +234,11 @@
 
   <!-- CONTACT -->
   <section id="contact">
-  <h2>Reach Out to Me</h2>
-  <iframe src="https://forms.gle/1QEKDa4VFrJPGF948?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">
-    Loading…
-  </iframe>
-</section>
+    <h2>Reach Out to Me</h2>
+    <div class="form-wrapper">
+      <iframe src="https://forms.gle/1TBLbxQTB2YHD93g9?embedded=true">Loading…</iframe>
+    </div>
+  </section>
 
   <footer>© 2025 Mauli Patel</footer>
 
@@ -253,12 +263,3 @@
       localStorage.setItem("theme",mode);
       spawnFireflies();
     }
-    toggle.addEventListener("click",()=>{
-      const mode=document.body.classList.contains("light")?"dark":"light";
-      setTheme(mode);
-    });
-    const saved=localStorage.getItem("theme")||"dark";
-    setTheme(saved);
-  </script>
-</body>
-</html>
