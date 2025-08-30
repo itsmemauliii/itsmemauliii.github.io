@@ -63,7 +63,7 @@
     header p{max-width:550px;margin:15px auto;color:var(--muted);}
     .tagline span{color:var(--neon-alt);font-weight:700;}
 
-    /* Magic Words (fixed + fade) */
+    /* Magic Words */
     .magic-words {
       display:inline-block;
       overflow:hidden;
@@ -255,7 +255,7 @@
   <section id="contact">
     <h2>Reach Out to Me</h2>
     <div class="form-wrapper">
-      <iframe src="https://forms.gle/tv3jkcM1ioKBT84eA">Loading…</iframe>
+      <iframe src="https://forms.gle/rrXZ5dwjxx5V9gRH7">Loading…</iframe>
     </div>
   </section>
 
@@ -263,44 +263,27 @@
 
   <!-- Fireflies + Theme Toggle JS -->
   <script>
-    const NUM_FIREFLIES = 25;
-    function spawnFireflies(){
-      document.querySelectorAll(".firefly").forEach(f=>f.remove());
-      for(let i=0;i<NUM_FIREFLIES;i++){
-        const fly = document.createElement("div");
-        fly.className = "firefly";
-        fly.style.top = Math.random()*100 + "vh";
-        fly.style.left = Math.random()*100 + "vw";
-        fly.style.animationDuration = (15 + Math.random()*15) + "s, " + (2+Math.random()*3)+"s";
-        document.body.appendChild(fly);
+    document.addEventListener("DOMContentLoaded", () => {
+      const NUM_FIREFLIES = 25;
+      const toggle = document.getElementById("themeToggle");
+
+      function spawnFireflies(){
+        document.querySelectorAll(".firefly").forEach(f=>f.remove());
+        for(let i=0;i<NUM_FIREFLIES;i++){
+          const fly = document.createElement("div");
+          fly.className = "firefly";
+          fly.style.top = Math.random()*100 + "vh";
+          fly.style.left = Math.random()*100 + "vw";
+          fly.style.animationDuration = (15 + Math.random()*15) + "s, " + (2+Math.random()*3)+"s";
+          document.body.appendChild(fly);
+        }
       }
-    }
 
-    const toggle = document.getElementById("themeToggle");
-
-    function setTheme(mode){
-      if(mode==="light"){
-        document.body.classList.add("light");
-        toggle.textContent="🌙";
-      } else {
-        document.body.classList.remove("light");
-        toggle.textContent="🌞";
-      }
-      localStorage.setItem("theme",mode);
-      spawnFireflies();
-    }
-
-    // toggle click event
-    toggle.addEventListener("click",()=>{
-      const mode=document.body.classList.contains("light")?"dark":"light";
-      setTheme(mode);
-    });
-
-    // apply saved theme on load
-    window.addEventListener("DOMContentLoaded",()=>{
-      const saved=localStorage.getItem("theme")||"dark";
-      setTheme(saved);
-    });
-  </script>
-</body>
-</html>
+      function setTheme(mode){
+        if(mode === "light"){
+          document.body.classList.add("light");
+          toggle.textContent = "🌙";
+        } else {
+          document.body.classList.remove("light");
+          toggle.textContent = "🌞";
+        }
