@@ -10,7 +10,7 @@
 
 **NovemberAI** is a lightweight, modern web interface designed to collect **early-access waitlist signups** for an upcoming AI-powered analytics platform.
 
-The website presents NovemberAI’s mission — helping businesses **clean data**, **build dashboards**, and **automate workflows**, while showcasing product benefits and gathering user interest via an integrated form.
+The website presents NovemberAI’s mission, helping businesses **clean data**, **build dashboards**, and **automate workflows**, while showcasing product benefits and gathering user interest via an integrated form.
 
 This project emphasizes **clean design, accessibility, and responsive UI** with zero frameworks, built purely with **HTML, CSS, and vanilla JavaScript**.
 
