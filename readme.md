@@ -106,8 +106,8 @@ Helping teams save **10–15 hours/week** and make **30% clearer insights**.
 
 ## Author
 
-**Mauli Patel**
-AI & Data Science Enthusiast
+* **Mauli Patel**
+* AI & Data Science Enthusiast
 * [maulipatel18112003@gmail.com](mailto:maulipatel18112003@gmail.com)
 * [LinkedIn](https://linkedin.com/in/itsmemauliii)
 
