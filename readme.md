@@ -1,4 +1,4 @@
-# Mauli Patel — Data Analyst & Content Writer Portfolio
+# Mauli Patel - Data Analyst & Content Writer Portfolio
 
 Welcome to my personal portfolio website, a digital space where data meets design.
 This site showcases my journey through **data analytics, visualization, and AI-driven storytelling**.
