@@ -1,114 +1,92 @@
-# NovemberAI
+# Mauli Patel — Data Analyst & Content Writer Portfolio
 
-### Data Automation & Business Intelligence Platform
-
-**Created by:** Mauli Patel
+Welcome to my personal portfolio website, a digital space where data meets design.
+This site showcases my journey through **data analytics, visualization, and AI-driven storytelling**.
 
 ---
 
 ## Overview
 
-**NovemberAI** is a lightweight, modern web interface designed to collect **early-access waitlist signups** for an upcoming AI-powered analytics platform.
+This portfolio was built entirely using **HTML, CSS, and JavaScript**, with a focus on performance, aesthetics, and interactivity.
+It features smooth theme switching (dark/light), glowing neon elements, animated fireflies, and responsive layouts all hand-coded, no frameworks.
 
-The website presents NovemberAI’s mission, helping businesses **clean data**, **build dashboards**, and **automate workflows**, while showcasing product benefits and gathering user interest via an integrated form.
+The goal? To represent my dual identity both **analyst** and **storyteller**.
 
-This project emphasizes **clean design, accessibility, and responsive UI** with zero frameworks, built purely with **HTML, CSS, and vanilla JavaScript**.
+---
+
+## Sections Included
+
+* **About** — Academic path and passion for AI-powered analytics.
+* **Skills** — Technical stack in Python, visualization, and big data tools.
+* **Projects** — Live demos of data and NLP-based applications.
+* **Writing** — My published newsletters on LinkedIn.
+* **Education** — Academic background.
+* **Certifications** — Courses and credentials from Cisco, IBM, HP LIFE.
+* **Interests** — Personal passions beyond data.
+* **Contact** — Google Form integration for quick reach-outs.
+
+---
+
+## Tech Stack
+
+| Area      | Tools                                                    |
+| --------- | -------------------------------------------------------- |
+| Frontend  | HTML5, CSS3, JavaScript (Vanilla)                        |
+| Styling   | Custom CSS Variables, Responsive Grid, Neon Glow Effects |
+| Animation | CSS Keyframes & JS DOM Manipulation                      |
+| Fonts     | Inter (via Google Fonts)                                 |
+| Hosting   | GitHub Pages / Netlify (recommended)                     |
 
 ---
 
 ## Features
 
-* **Responsive Landing Page:** Adapts seamlessly across devices and screen sizes.
-* **Waitlist Signup Form:** Integrated via [Getform.io](https://getform.io) for backend-free form handling.
-* **Brand Identity:** Minimal, professional look with smooth gradients and clear typography.
-* **Dynamic JavaScript Elements:**
-
-  * Live year in footer
-  * Form submission feedback (success/error states)
-  * Loading animation on submission
-* **Lightweight & Fast:** No dependencies or external JS libraries.
+* Dark/Light mode toggle with persistent theme memory
+* Smooth scrolling navigation
+* Animated **firefly** background for futuristic ambience
+* Responsive grid system
+* Embeds LinkedIn newsletters & Tableau dashboards
+* Minimal dependencies, pure code, no heavy frameworks
 
 ---
 
-## Technologies Used
+## Live Links
 
-| Category      | Tools / Libraries               |
-| ------------- | ------------------------------- |
-| Frontend      | HTML5, CSS3, Vanilla JavaScript |
-| Typography    | Inter (Google Fonts)            |
-| Form Handling | Getform.io endpoint             |
-| Hosting Ready | GitHub Pages / Vercel / Netlify |
+* **LinkedIn:** [linkedin.com/in/itsmemauliii](https://www.linkedin.com/in/itsmemauliii)
+* **GitHub:** [github.com/itsmemauliii](https://github.com/itsmemauliii)
+* **Tableau Public:** [public.tableau.com/app/profile/dataqueenmauli](https://public.tableau.com/app/profile/dataqueenmauli)
 
 ---
 
-## Project Structure
+## Setup Instructions
 
-```
-NovemberAI/
-│
-├── index.html          # Main HTML file
-├── /assets/            # (Optional) Static files (e.g., images, icons)
-├── README.md           # Project documentation
-└── /styles/            # (Optional) CSS split structure if modularized
-```
+1. Clone this repository:
 
----
+   ```bash
+   git clone https://github.com/itsmemauliii/portfolio.git
+   cd portfolio
+   ```
 
-## Deployment
+2. Open the file:
 
-### 1. Run Locally
+   ```bash
+   index.html
+   ```
 
-Open the `index.html` file directly in your browser:
-
-```bash
-open index.html
-```
-
-### 2. Deploy to GitHub Pages
-
-* Push your code to a GitHub repository.
-* In repository settings → Pages → set source to “main” branch and root folder.
-* Your live site will be available at:
-
-  ```
-  https://itsmemauliii.github.io/novemberai/
-  ```
-
-### 3. Deploy to Netlify or Vercel
-
-* Drag and drop the folder into Netlify or connect your GitHub repo.
-* Add your **Getform.io** endpoint under the form’s `action` attribute.
+3. That’s it. No installation required, just open it in your browser.
 
 ---
 
-## Customization
+## Future Enhancements
 
-You can easily personalize:
-
-* **Brand name, logo letter, and color palette** (CSS variables in `:root`)
-* **Form endpoint** – replace `https://getform.io/f/apjzzkea` with your own
-* **Text sections** – edit copy in `<section>` blocks
-* **Social links** – update LinkedIn, X (Twitter), or email references in the footer
+* Convert to **React + Tailwind** for component reusability
+* Add analytics dashboard with live API data
+* Include blog system for project case studies
+* Optimize SEO and add structured data
 
 ---
 
-## Vision
+## License
 
-NovemberAI aims to **turn data into decisions** by giving teams access to:
-
-* Real-time dashboards
-* Workflow automation
-* Data cleaning and visualization tools
-
-Helping teams save **10–15 hours/week** and make **30% clearer insights**.
-
----
-
-## Author
-
-* **Mauli Patel**
-* AI & Data Science Enthusiast
-* [maulipatel18112003@gmail.com](mailto:maulipatel18112003@gmail.com)
-* [LinkedIn](https://linkedin.com/in/itsmemauliii)
-
----
+This portfolio is open for inspiration, feel free to fork and adapt (with credit).
+© 2025 **Mauli Patel**
