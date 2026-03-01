@@ -89,4 +89,4 @@ The goal? To represent my dual identity both **analyst** and **storyteller**.
 ## License
 
 This portfolio is open for inspiration, feel free to fork and adapt (with credit).
-© 2025 **Mauli Patel**
+© 2026 **Mauli Patel**
